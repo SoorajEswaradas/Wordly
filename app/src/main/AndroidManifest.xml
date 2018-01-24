@@ -5,10 +5,11 @@
     <uses-permission android:name="android.permission.INTERNET" />
 
     <application
+        android:name=".fbquiz"
         android:allowBackup="true"
-        android:icon="@drawable/wordly"
+        android:icon="@drawable/logo"
         android:label="Wordly"
-        android:roundIcon="@drawable/wordly"
+        android:roundIcon="@drawable/wordly1"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
         <activity android:name=".splash">
@@ -21,7 +22,11 @@
         <activity android:name=".login" />
         <activity android:name=".registration" />
         <activity android:name=".first" />
-
+        <activity android:name=".quiz" />
+        <activity
+            android:name=".finalquiz"
+            android:label="@string/title_activity_finalquiz"
+            android:theme="@style/AppTheme.NoActionBar"></activity>
     </application>
 
 </manifest>

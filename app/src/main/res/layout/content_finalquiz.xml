@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    app:layout_behavior="@string/appbar_scrolling_view_behavior"
+    tools:context="com.example.admin.wordly.finalquiz"
+    tools:showIn="@layout/app_bar_finalquiz">
+
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:orientation="horizontal">
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_weight="1"
+                android:layout_height="match_parent"
+                android:text="Score:"
+                android:background="#adcc4d"
+                android:gravity="center"
+                android:textSize="25sp"/>
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_weight="1"
+                android:layout_height="match_parent"
+                android:text="0"
+                android:id="@+id/scored"
+                android:gravity="center"
+                android:textSize="25sp"/>
+
+        </LinearLayout>
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="4"
+            android:id="@+id/question"
+            android:text="hai"
+            android:textSize="50sp"
+            android:gravity="center"/>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:orientation="horizontal">
+            <Button
+                android:layout_margin="5pt"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="#adcc4d"
+                android:layout_weight="1"
+                android:id="@+id/choice1"
+                android:text="choice1"
+                android:textSize="25sp"/>
+
+            <Button
+                android:layout_margin="5pt"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="#adcc4d"
+                android:layout_weight="1"
+                android:id="@+id/choice2"
+                android:text="choice2"
+                android:textSize="25sp"/>
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:orientation="horizontal">
+            <Button
+                android:layout_margin="5pt"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="#adcc4d"
+                android:layout_weight="1"
+                android:id="@+id/choice3"
+                android:text="choice3"
+                android:textSize="25sp"/>
+
+            <Button
+                android:layout_margin="5pt"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="#adcc4d"
+                android:layout_weight="1"
+                android:id="@+id/choice4"
+                android:text="choice4"
+                android:textSize="25sp"/>
+        </LinearLayout>
+    </LinearLayout>
+</android.support.constraint.ConstraintLayout>

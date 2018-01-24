@@ -17,7 +17,7 @@
         <ImageView
             android:layout_width="wrap_content"
             android:layout_height="200dp"
-            android:src="@drawable/wordly" />
+            android:src="@drawable/wordly1" />
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="100dp" />

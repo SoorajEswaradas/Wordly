@@ -4,4 +4,12 @@
     <string name="title_activity_register">register</string>
     <string name="dummy_button">Dummy Button</string>
     <string name="dummy_content">DUMMY\nCONTENT</string>
+    <string name="title_activity_welcomequiz">welcomequiz</string>
+    <string name="title_activity_quizfinal">quizfinal</string>
+
+    <string name="navigation_drawer_open">Open navigation drawer</string>
+    <string name="navigation_drawer_close">Close navigation drawer</string>
+
+    <string name="action_settings">Settings</string>
+    <string name="title_activity_finalquiz">finalquiz</string>
 </resources>
