@@ -299,6 +299,36 @@ public class finalquiz extends AppCompatActivity
         });
 
         qtnnumber++;
+        if(qtnnumber>5)
+        {
+            finish();
+            if(score<=1)
+            {
+
+                Intent i=new Intent(this,level1.class);
+                startActivity(i);
+            }
+            if(score==2)
+            {
+                Intent i=new Intent(this,level2.class);
+                startActivity(i);
+            }
+            if(score==3)
+            {
+                Intent i=new Intent(this,level3.class);
+                startActivity(i);
+            }
+           /* if(score==4)
+            {
+                Intent i=new Intent(this,level4.class);
+                startActivity(i);
+            }
+            if(score==5)
+            {
+                Intent i=new Intent(this,level5.class);
+                startActivity(i);
+            }*/
+        }
 
     }
 

@@ -26,7 +26,19 @@
         <activity
             android:name=".finalquiz"
             android:label="@string/title_activity_finalquiz"
-            android:theme="@style/AppTheme.NoActionBar"></activity>
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name=".level2"
+            android:label="Wordly"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name=".level1"
+            android:label="Wordly"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name=".level3"
+            android:label="Wordly"
+            android:theme="@style/AppTheme.NoActionBar"/>
     </application>
 
 </manifest>

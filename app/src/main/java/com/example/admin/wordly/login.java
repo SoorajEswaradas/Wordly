@@ -71,7 +71,8 @@ public class login extends Activity implements View.OnClickListener {
             return;
         }
 
-
+        progress.setMessage("Logging in");
+        progress.show();
 
         firebaseauth.signInWithEmailAndPassword(logmail,logpassword)
                 .addOnCompleteListener(this, new OnCompleteListener<AuthResult>() {
@@ -79,8 +80,7 @@ public class login extends Activity implements View.OnClickListener {
                     public void onComplete(@NonNull Task<AuthResult> task) {
                        if(task.isSuccessful())
                        {
-                           progress.setMessage("Logging in");
-                           progress.show();
+
                            Toast.makeText(login.this, "Successfully Logged in", Toast.LENGTH_SHORT).show();
                            finish();
                            Intent intent=new Intent(login.this,finalquiz.class);
@@ -89,8 +89,8 @@ public class login extends Activity implements View.OnClickListener {
                        }
                        else
                        {
+                           progress.dismiss();
                            Toast.makeText(login.this, "Please enter the correct username and password", Toast.LENGTH_SHORT).show();
-                           finish();
                        }
                     }
 

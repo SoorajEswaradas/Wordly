@@ -12,4 +12,7 @@
 
     <string name="action_settings">Settings</string>
     <string name="title_activity_finalquiz">finalquiz</string>
+    <string name="title_activity_level1">level1</string>
+    <string name="title_activity_level2">level2</string>
+    <string name="title_activity_level3">level3</string>
 </resources>

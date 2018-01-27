@@ -71,6 +71,7 @@ public class registration extends Activity implements View.OnClickListener {
         progress.setMessage("Registering");
         progress.show();
 
+
         firebaseauth.createUserWithEmailAndPassword(regemail,regpassword)
                 .addOnCompleteListener(this, new OnCompleteListener<AuthResult>() {
                     @Override
@@ -83,6 +84,7 @@ public class registration extends Activity implements View.OnClickListener {
                        }
                        else
                        {
+                           progress.dismiss();
                            Toast.makeText(registration.this, "Registration failed", Toast.LENGTH_SHORT).show();
                        }
                     }
