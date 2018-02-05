@@ -52,8 +52,44 @@
                 android:textColorHint="#000000"
                 android:layout_marginLeft="15pt"
                 android:layout_marginRight="15pt"
-                android:hint="Enter your email"
+                android:hint="Enter your Username"
+                android:id="@+id/username"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content" />
+        </LinearLayout>
+        <LinearLayout
+            android:layout_gravity="center_vertical"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            >
+
+            <EditText
+                android:layout_weight="3"
+                android:textSize="15sp"
+                android:gravity="center"
+                android:textColorHint="#000000"
+                android:layout_marginLeft="15pt"
+                android:layout_marginRight="15pt"
+                android:hint="Enter Your Email"
                 android:id="@+id/email"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content" />
+        </LinearLayout>
+        <LinearLayout
+            android:layout_gravity="center_vertical"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            >
+
+            <EditText
+                android:layout_weight="3"
+                android:textSize="15sp"
+                android:gravity="center"
+                android:textColorHint="#000000"
+                android:layout_marginLeft="15pt"
+                android:layout_marginRight="15pt"
+                android:hint="Enter Your Phone Number"
+                android:id="@+id/phone"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content" />
         </LinearLayout>
@@ -71,11 +107,32 @@
                 android:textSize="15sp"
                 android:gravity="center"
                 android:textColorHint="#000000"
-                android:hint="Enter your password "
+                android:hint="Enter Your Password "
                 android:layout_marginLeft="15pt"
                 android:layout_marginRight="15pt"
                 android:inputType="textPassword"
                 android:id="@+id/password"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content" />
+        </LinearLayout>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical"
+            >
+
+
+
+            <EditText
+                android:layout_weight="3"
+                android:textSize="15sp"
+                android:gravity="center"
+                android:textColorHint="#000000"
+                android:hint="Confirm Password "
+                android:layout_marginLeft="15pt"
+                android:layout_marginRight="15pt"
+                android:inputType="textPassword"
+                android:id="@+id/confirmpassword"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content" />
         </LinearLayout>

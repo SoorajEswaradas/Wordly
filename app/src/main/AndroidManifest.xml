@@ -30,15 +30,22 @@
         <activity
             android:name=".level2"
             android:label="Wordly"
+            android:launchMode="singleTask"
             android:theme="@style/AppTheme.NoActionBar" />
         <activity
             android:name=".level1"
             android:label="Wordly"
+            android:launchMode="singleTask"
             android:theme="@style/AppTheme.NoActionBar" />
         <activity
             android:name=".level3"
             android:label="Wordly"
-            android:theme="@style/AppTheme.NoActionBar"/>
+            android:launchMode="singleTask"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity android:name=".route"
+            android:label="Wordly">
+
+        </activity>
     </application>
 
 </manifest>

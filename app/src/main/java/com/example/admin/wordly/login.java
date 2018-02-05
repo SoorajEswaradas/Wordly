@@ -42,7 +42,7 @@ public class login extends Activity implements View.OnClickListener {
 
        if(firebaseauth.getCurrentUser()!=null) {
            finish();
-           Intent intent=new Intent(login.this,finalquiz.class);
+           Intent intent=new Intent(login.this,route.class);
            startActivity(intent);
        }
 
@@ -83,7 +83,7 @@ public class login extends Activity implements View.OnClickListener {
 
                            Toast.makeText(login.this, "Successfully Logged in", Toast.LENGTH_SHORT).show();
                            finish();
-                           Intent intent=new Intent(login.this,finalquiz.class);
+                           Intent intent=new Intent(login.this,route.class);
                            startActivity(intent);
 
                        }
@@ -99,9 +99,10 @@ public class login extends Activity implements View.OnClickListener {
 
     public void toregister(View view)
     {
+        finish();
         Intent intent=new Intent(this, registration.class);
         startActivity(intent);
-        finish();
+
 
     }
 

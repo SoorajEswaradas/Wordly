@@ -3,7 +3,7 @@ package com.example.admin.wordly;
 import android.content.ClipData;
 import android.content.Intent;
 import android.os.Bundle;
-import android.support.design.widget.FloatingActionButton;
+
 import android.support.design.widget.Snackbar;
 import android.view.View;
 import android.support.design.widget.NavigationView;
@@ -23,6 +23,12 @@ import com.firebase.client.Firebase;
 import com.firebase.client.FirebaseError;
 import com.firebase.client.ValueEventListener;
 import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+
+import java.util.HashMap;
+import java.util.Map;
+
 
 public class finalquiz extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
@@ -30,10 +36,11 @@ public class finalquiz extends AppCompatActivity
     public FirebaseAuth firebaseAuth;
     private TextView question;
     public TextView scored;
+    public FirebaseDatabase fbdatabase;
 
     private Button choice1,choice2,choice3,choice4;
-    public int score=0;
 
+    public int score=0;
     private int qtnnumber=0;
     private String ans="";
     @Override
@@ -43,14 +50,6 @@ public class finalquiz extends AppCompatActivity
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
-        FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
-        fab.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
-                        .setAction("Action", null).show();
-            }
-        });
 
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(
@@ -62,6 +61,7 @@ public class finalquiz extends AppCompatActivity
         navigationView.setNavigationItemSelectedListener(this);
 
         firebaseAuth=FirebaseAuth.getInstance();
+        fbdatabase=FirebaseDatabase.getInstance();
 
         question=(TextView)findViewById(R.id.question);
         choice1=(Button)findViewById(R.id.choice1);
@@ -97,6 +97,7 @@ public class finalquiz extends AppCompatActivity
                 {
                     score++;
                     Toast.makeText(finalquiz.this, "Right answer", Toast.LENGTH_SHORT).show();
+
                     updatescore(score);
                     updatequestion();
                 }
@@ -144,6 +145,8 @@ public class finalquiz extends AppCompatActivity
             }
         });
     }
+
+
 
     @Override
     public void onBackPressed() {
@@ -211,7 +214,7 @@ public class finalquiz extends AppCompatActivity
     public void updatequestion()
     {
         Firebase questionref,choice1ref,choice2ref,choice3ref,choice4ref,answerref;
-        questionref = new Firebase("https://wordly-b22f0.firebaseio.com/"+qtnnumber+"/question");
+        questionref = new Firebase("https://wordly-b22f0.firebaseio.com/quiz/"+qtnnumber+"/question");
         questionref.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
@@ -225,7 +228,7 @@ public class finalquiz extends AppCompatActivity
             }
         });
 
-        choice1ref = new Firebase("https://wordly-b22f0.firebaseio.com/"+qtnnumber+"/choice1");
+        choice1ref = new Firebase("https://wordly-b22f0.firebaseio.com/quiz/"+qtnnumber+"/choice1");
         choice1ref.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
@@ -239,7 +242,7 @@ public class finalquiz extends AppCompatActivity
             }
         });
 
-        choice2ref = new Firebase("https://wordly-b22f0.firebaseio.com/"+qtnnumber+"/choice2");
+        choice2ref = new Firebase("https://wordly-b22f0.firebaseio.com/quiz/"+qtnnumber+"/choice2");
         choice2ref.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
@@ -254,7 +257,7 @@ public class finalquiz extends AppCompatActivity
         });
 
 
-        choice3ref = new Firebase("https://wordly-b22f0.firebaseio.com/"+qtnnumber+"/choice3");
+        choice3ref = new Firebase("https://wordly-b22f0.firebaseio.com/quiz/"+qtnnumber+"/choice3");
         choice3ref.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
@@ -269,7 +272,7 @@ public class finalquiz extends AppCompatActivity
         });
 
 
-        choice4ref = new Firebase("https://wordly-b22f0.firebaseio.com/"+qtnnumber+"/choice4");
+        choice4ref = new Firebase("https://wordly-b22f0.firebaseio.com/quiz/"+qtnnumber+"/choice4");
         choice4ref.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
@@ -284,7 +287,7 @@ public class finalquiz extends AppCompatActivity
         });
 
 
-        answerref = new Firebase("https://wordly-b22f0.firebaseio.com/"+qtnnumber+"/answer");
+        answerref = new Firebase("https://wordly-b22f0.firebaseio.com/quiz/"+qtnnumber+"/answer");
         answerref.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
@@ -299,31 +302,45 @@ public class finalquiz extends AppCompatActivity
         });
 
         qtnnumber++;
-        if(qtnnumber>5)
+
+
+        if(qtnnumber>10)
         {
             finish();
-            if(score<=1)
-            {
+            String userid = firebaseAuth.getCurrentUser().getUid();
+            DatabaseReference db = fbdatabase.getReference().child("Scores").child(userid);
 
+            String sco=String.valueOf(score);
+            Map newmap = new HashMap();
+            newmap.put("score",sco);
+            db.setValue(newmap);
+
+
+            if(score<=2)
+            {
+                finish();
                 Intent i=new Intent(this,level1.class);
                 startActivity(i);
+
             }
-            if(score==2)
+            else if(score<=4)
             {
+                finish();
                 Intent i=new Intent(this,level2.class);
                 startActivity(i);
             }
-            if(score==3)
+            else if(score<=6)
             {
+                finish();
                 Intent i=new Intent(this,level3.class);
                 startActivity(i);
             }
-           /* if(score==4)
+           /*if(score<=8)
             {
                 Intent i=new Intent(this,level4.class);
                 startActivity(i);
             }
-            if(score==5)
+            if(score<=10)
             {
                 Intent i=new Intent(this,level5.class);
                 startActivity(i);
@@ -331,6 +348,8 @@ public class finalquiz extends AppCompatActivity
         }
 
     }
+
+
 
     public void logout(MenuItem item)
     {

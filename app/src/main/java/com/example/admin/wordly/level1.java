@@ -1,6 +1,7 @@
 package com.example.admin.wordly;
 
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
@@ -28,6 +29,13 @@ public class level1 extends AppCompatActivity
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
+
+      /* SharedPreferences prefs=getSharedPreferences("prefs",MODE_PRIVATE);
+       boolean firststart=prefs.getBoolean("firststart",true);
+
+       if(firststart)
+           showquiz();
+*/
         firebaseauth=FirebaseAuth.getInstance();
 
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
@@ -40,7 +48,19 @@ public class level1 extends AppCompatActivity
         navigationView.setNavigationItemSelectedListener(this);
     }
 
-    @Override
+  /*  public void showquiz()
+    {
+    Intent intent=new Intent(this,finalquiz.class);
+    startActivity(intent);
+
+        SharedPreferences prefs=getSharedPreferences("prefs",MODE_PRIVATE);
+        SharedPreferences.Editor editor=prefs.edit();
+        editor.putBoolean("firststart",false);
+        editor.apply();
+
+    }
+*/
+   @Override
     public void onBackPressed() {
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         if (drawer.isDrawerOpen(GravityCompat.START)) {
