@@ -335,7 +335,7 @@ public class finalquiz extends AppCompatActivity
                 Intent i=new Intent(this,level3.class);
                 startActivity(i);
             }
-           /*if(score<=8)
+           if(score<=8)
             {
                 Intent i=new Intent(this,level4.class);
                 startActivity(i);
@@ -344,7 +344,7 @@ public class finalquiz extends AppCompatActivity
             {
                 Intent i=new Intent(this,level5.class);
                 startActivity(i);
-            }*/
+            }
         }
 
     }

@@ -42,10 +42,21 @@
             android:label="Wordly"
             android:launchMode="singleTask"
             android:theme="@style/AppTheme.NoActionBar" />
-        <activity android:name=".route"
-            android:label="Wordly">
-
-        </activity>
+        <activity
+            android:name=".route"
+            android:label="Wordly"
+            android:launchMode="singleTask"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name=".level4"
+            android:label="@string/title_activity_level4"
+            android:launchMode="singleTask"
+            android:theme="@style/AppTheme.NoActionBar"/>
+        <activity
+            android:name=".level5"
+            android:label="@string/title_activity_level5"
+            android:launchMode="singleTask"
+            android:theme="@style/AppTheme.NoActionBar" />
     </application>
 
 </manifest>

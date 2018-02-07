@@ -24,7 +24,7 @@ public class route extends AppCompatActivity {
         super.onCreate(savedInstanceState);
 
         requestWindowFeature(Window.FEATURE_NO_TITLE);
-        this.getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN, WindowManager.LayoutParams.FLAG_FULLSCREEN);
+        getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN, WindowManager.LayoutParams.FLAG_FULLSCREEN);
 
         setContentView(R.layout.activity_route);
 
@@ -64,7 +64,7 @@ public class route extends AppCompatActivity {
                     Intent i=new Intent(route.this,level3.class);
                     startActivity(i);
                 }
-                /*else if (score.equals("7")||score.equals("8"))
+                else if (score.equals("7")||score.equals("8"))
                 {
                     finish();
                     Intent i=new Intent(route.this,level4.class);
@@ -75,7 +75,7 @@ public class route extends AppCompatActivity {
                     finish();
                     Intent i=new Intent(route.this,level5.class);
                     startActivity(i);
-                }*/
+                }
                 else
                 {
                     finish();
