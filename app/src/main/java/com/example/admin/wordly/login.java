@@ -2,6 +2,7 @@ package com.example.admin.wordly;
 
 import android.app.Activity;
 import android.app.ProgressDialog;
+import android.app.SearchManager;
 import android.content.Intent;
 import android.os.Handler;
 import android.support.annotation.NonNull;
@@ -27,6 +28,7 @@ public class login extends Activity implements View.OnClickListener {
     private Button login;
     private FirebaseAuth firebaseauth;
     private ProgressDialog progress;
+    //private EditText search;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -34,9 +36,11 @@ public class login extends Activity implements View.OnClickListener {
         super.onCreate(savedInstanceState);
         requestWindowFeature(Window.FEATURE_NO_TITLE);
         this.getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN,WindowManager.LayoutParams.FLAG_FULLSCREEN);
+
+
         setContentView(R.layout.activity_login);
 
-
+       // search=(EditText)findViewById(R.id.search);
 
         firebaseauth=FirebaseAuth.getInstance();
 
@@ -114,4 +118,26 @@ public class login extends Activity implements View.OnClickListener {
 
         }
     }
+
+    public void dictionary(View view) {
+        Intent i=new Intent(this,searchword.class);
+        startActivity(i);
+    }
+
+
+
+
+
+    /*public void searching(View v)
+    {
+        try {
+            Intent intent = new Intent(Intent.ACTION_WEB_SEARCH);
+            String term = search.getText().toString();
+            intent.putExtra(SearchManager.SUGGEST_URI_PATH_QUERY, term);
+            startActivity(intent);
+        } catch (Exception e) {
+            // TODO: handle exception
+        }
+
+    }*/
 }

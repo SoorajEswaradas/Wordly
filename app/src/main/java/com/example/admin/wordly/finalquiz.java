@@ -39,7 +39,7 @@ public class finalquiz extends AppCompatActivity
     public FirebaseDatabase fbdatabase;
 
     private Button choice1,choice2,choice3,choice4;
-
+    private TextView qtn;
     public int score=0;
     private int qtnnumber=0;
     private String ans="";
@@ -69,6 +69,7 @@ public class finalquiz extends AppCompatActivity
         choice3=(Button)findViewById(R.id.choice3);
         choice4=(Button)findViewById(R.id.choice4);
         scored=(TextView)findViewById(R.id.scored);
+        qtn=(TextView)findViewById(R.id.qtn);
 
         updatequestion();
 
@@ -220,6 +221,8 @@ public class finalquiz extends AppCompatActivity
             public void onDataChange(DataSnapshot dataSnapshot) {
                 String question1=dataSnapshot.getValue(String.class);
                 question.setText(question1);
+                String qtn1=String.valueOf(qtnnumber);
+                qtn.setText(qtn1);
             }
 
             @Override

@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
@@ -14,16 +14,19 @@
         android:background="#FFFFFF"
         >
 
+
+
+
         <ImageView
             android:layout_width="120pt"
-            android:layout_height="90pt"
+            android:layout_height="75pt"
             android:layout_gravity="center"
             android:layout_marginBottom="20pt"
             android:src="@drawable/logo" />
 
 
         <TextView
-            android:layout_marginTop="15pt"
+            android:layout_marginTop="10pt"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Login"
@@ -94,9 +97,27 @@
                 android:textSize="15sp"
                 android:fontFamily="monospace"/>
         </LinearLayout>
+          <!--  <EditText
+                android:id="@+id/search"
+                android:layout_width="200dp"
+                android:layout_marginRight="5pt"
+                android:layout_height="wrap_content"
+
+                android:hint=" Enter your word"
+                android:inputType="textPassword"
+                android:textColor="#000000"
+                android:textColorHint="#000000"
+                android:textSize="15sp"
+                android:fontFamily="monospace"/>
+        <Button
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:text="search"
+            android:onClick="searching"/>
+-->
 
         <Button
-            android:layout_marginBottom="15dp"
+            android:layout_marginBottom="10dp"
             android:layout_width="75pt"
             android:layout_height="wrap_content"
             android:text="Login"
@@ -109,6 +130,7 @@
             />
 
         <TextView
+            android:layout_marginBottom="10dp"
             android:layout_marginTop="8dp"
             android:textSize="17sp"
             android:textColor="#000FFF"
@@ -119,4 +141,21 @@
             android:onClick="toregister"/>
 
     </LinearLayout>
-</android.support.constraint.ConstraintLayout>
+
+    <Button
+          android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Dictionary"
+        android:id="@+id/dictionary"
+        android:fontFamily="sans-serif"
+        android:textSize="18sp"
+        android:textStyle="bold"
+        android:textColor="#FFFFFF"
+        android:layout_gravity="center"
+        android:background="#000000"
+        android:onClick="dictionary"
+        android:layout_alignParentBottom="true"
+        />
+
+
+</RelativeLayout>
