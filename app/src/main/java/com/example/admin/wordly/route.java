@@ -43,7 +43,7 @@ public class route extends AppCompatActivity {
                 if(score.equals("100"))
                 {
                     finish();
-                    Intent i=new Intent(route.this,finalquiz.class);
+                    Intent i=new Intent(route.this,slider.class);
                     startActivity(i);
                 }
                 else if (score.equals("0")||score.equals("1")||score.equals("2"))

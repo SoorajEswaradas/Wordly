@@ -157,6 +157,7 @@ public class finalquiz extends AppCompatActivity
         } else {
             super.onBackPressed();
         }
+
     }
 
     @Override
@@ -185,7 +186,7 @@ public class finalquiz extends AppCompatActivity
     @Override
     public boolean onNavigationItemSelected(MenuItem item) {
         // Handle navigation view item clicks here.
-        int id = item.getItemId();
+        /*int id = item.getItemId();
 
         if (id == R.id.nav_camera) {
             // Handle the camera action
@@ -199,7 +200,7 @@ public class finalquiz extends AppCompatActivity
 
         } else if (id == R.id.nav_send) {
 
-        }
+        }*/
 
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         drawer.closeDrawer(GravityCompat.START);
@@ -222,7 +223,9 @@ public class finalquiz extends AppCompatActivity
                 String question1=dataSnapshot.getValue(String.class);
                 question.setText(question1);
                 String qtn1=String.valueOf(qtnnumber);
+                if(qtnnumber<=10)
                 qtn.setText(qtn1);
+                
             }
 
             @Override
@@ -351,8 +354,6 @@ public class finalquiz extends AppCompatActivity
         }
 
     }
-
-
 
     public void logout(MenuItem item)
     {
