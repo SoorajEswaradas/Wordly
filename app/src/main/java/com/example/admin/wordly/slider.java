@@ -3,10 +3,13 @@ package com.example.admin.wordly;
 import android.support.v4.view.ViewPager;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.text.Html;
+import android.widget.TextView;
 
 public class slider extends AppCompatActivity {
     private ViewPager viewpager;
     private slideadapter myadapter;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -16,5 +19,8 @@ public class slider extends AppCompatActivity {
             viewpager.setAdapter(myadapter);
 
     }
+
+
+
 
 }

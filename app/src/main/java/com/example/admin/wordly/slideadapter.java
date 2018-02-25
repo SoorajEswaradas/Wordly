@@ -13,6 +13,7 @@ import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
+import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 import static android.content.Intent.FLAG_ACTIVITY_NO_HISTORY;
@@ -25,15 +26,15 @@ public class slideadapter extends PagerAdapter {
 
     public int[] images={
             R.drawable.logo,
-            R.drawable.password,
-            R.drawable.email,
-            R.drawable.username
+            R.drawable.slide2,
+            R.drawable.slide3,
+            R.drawable.logo
     };
 
     public String[] titles={
-            "first",
-            "second",
-            "Third",
+            "Welcome to Wordly",
+            "Learn Words",
+            "Assess yourself",
             "Start Test"
     };
 
@@ -44,11 +45,18 @@ public class slideadapter extends PagerAdapter {
             "hello"
     };
 
+    public String[] swipe={
+            "swipe left",
+            "swipe left",
+            "swipe left",
+            ""
+    };
+
     public int[] background= {
-            Color.rgb(255,10,250),
-            Color.rgb(10,150,100),
-            Color.rgb(40,255,125),  //should be <255
-            Color.rgb(240,100,100)
+            Color.rgb(255,255,255),
+            Color.rgb(255,255,255),
+            Color.rgb(255,255,255),  //should be <255
+            Color.rgb(255,255,255)
     };
 
     public slideadapter(Context context)
@@ -63,20 +71,21 @@ public class slideadapter extends PagerAdapter {
 
     @Override
     public boolean isViewFromObject(View view, Object object) {
-        return (view == (LinearLayout)object);
+        return (view == (RelativeLayout)object);
     }
 
     @Override
     public Object instantiateItem(final ViewGroup container, int position) {
         inflater=(LayoutInflater) context.getSystemService(context.LAYOUT_INFLATER_SERVICE);
         View view=  inflater.inflate(R.layout.slide1,container,false);
-        final LinearLayout slidelinearlayout=(LinearLayout) view.findViewById(R.id.slidelinearlayout);
-       // ImageView slideimageview= (ImageView) view.findViewById(R.id.slideimage);
+        final RelativeLayout slidelinearlayout=(RelativeLayout) view.findViewById(R.id.sliderelativelayout);
+       ImageView slideimageview= (ImageView) view.findViewById(R.id.slideimage);
         TextView slidetitle= (TextView) view.findViewById(R.id.slidetitle);
         slidelinearlayout.setBackgroundColor(background[position]);
-       // slideimageview.setImageResource(images[position]);
+       slideimageview.setImageResource(images[position]);
         slidetitle.setText(titles[position]);
-
+        TextView slideswipe= (TextView) view.findViewById(R.id.slideswipe);
+        slideswipe.setText(swipe[position]);
         if(position==3)
         {
             slidetitle.setOnClickListener(new View.OnClickListener() {
@@ -97,7 +106,7 @@ public class slideadapter extends PagerAdapter {
 
     @Override
     public void destroyItem(ViewGroup container, int position, Object object) {
-        container.removeView((LinearLayout)object);
+        container.removeView((RelativeLayout)object);
 
     }
 

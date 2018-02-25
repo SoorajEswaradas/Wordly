@@ -1,24 +1,41 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout
+<RelativeLayout
     xmlns:android="http://schemas.android.com/apk/res/android" android:layout_width="match_parent"
-    android:id="@+id/slidelinearlayout"
-    android:orientation="vertical"
+    android:id="@+id/sliderelativelayout"
     android:layout_height="match_parent"
     android:background="#AFEFEF"
     android:gravity="center">
-<!--<ImageView
-    android:layout_width="wrap_content"
-    android:layout_height="wrap_content"
-    android:id="@+id/slideimage"/>
--->
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:gravity="center"
+        android:orientation="vertical">
+    <ImageView
+        android:layout_width="120pt"
+        android:layout_height="70pt"
+        android:id="@+id/slideimage"
+        android:layout_marginBottom="35pt"/>
     <TextView
         android:layout_gravity="center"
         android:gravity="center"
-        android:textSize="30sp"
-        android:layout_width="200dp"
-        android:layout_height="200dp"
+        android:textSize="25sp"
+        android:layout_width="match_parent"
+        android:layout_height="30pt"
         android:id="@+id/slidetitle"
-        android:textColor="#FFFFFF"/>
+        android:textColor="#000000"
+        android:textStyle="bold"
+        android:fontFamily="serif-monospace"/>
+    </LinearLayout>
+    <TextView
+            android:gravity="center"
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:textSize="18sp"
+            android:fontFamily="serif-monospace"
+            android:id="@+id/slideswipe"
+            android:layout_alignParentBottom="true"
+            android:textColor="#ABBABB"/>
 
-
-</LinearLayout>
+</RelativeLayout>
