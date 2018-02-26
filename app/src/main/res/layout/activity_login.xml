@@ -126,7 +126,7 @@
             android:fontFamily="serif-monospace"
             android:textSize="18sp"
             android:layout_gravity="center"
-            android:background="#000000"
+            android:background="@drawable/roundedcorners"
             />
 
         <TextView
@@ -152,7 +152,7 @@
         android:textStyle="bold"
         android:textColor="#FFFFFF"
         android:layout_gravity="center"
-        android:background="#000000"
+        android:background="@drawable/roundedcorners"
         android:onClick="dictionary"
         android:layout_alignParentBottom="true"
         />

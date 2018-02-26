@@ -4,47 +4,98 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#DDDDDD"
+    android:background="#37474F"
     app:layout_behavior="@string/appbar_scrolling_view_behavior"
     tools:context="com.example.admin.wordly.level1"
     tools:showIn="@layout/app_bar_level1">
 
     <LinearLayout
-
+        android:layout_margin="5dp"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:orientation="vertical">
+        android:orientation="vertical"
+        android:background="#37474F">
 
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="0dp"
-            android:layout_weight="1">
+            android:layout_height="25pt"
+            android:orientation="horizontal"
+            android:background="#37474F"
+            >
 
             <TextView
-                android:textColor="#000000"
-                android:text="Beginner"
-                android:gravity="center"
-                android:textSize="10pt"
+
+                android:textStyle="bold"
+                android:layout_marginTop="3dp"
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
                 android:layout_weight="3"
-                android:background="#eeeeee"
-                android:layout_margin="10pt"
-                android:onClick="beginner"/>
+                android:background="@drawable/roundedcorners"
+                android:gravity="center"
+                android:onClick="beginner"
+                android:text="Unlocked"
+                android:fontFamily="serif-monospace"
+                android:textColor="#000000"
+                android:textSize="10pt" />
 
-            <ImageView
+
+        </LinearLayout>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:orientation="horizontal"
+            android:background="#37474F"
+            >
+
+            <TextView
+                android:textStyle="bold"
                 android:layout_width="0dp"
-                android:layout_weight="1"
                 android:layout_height="match_parent"
-                android:src="@drawable/unlock"/>
+                android:layout_weight="3"
+                android:gravity="center"
+                android:onClick="beginner"
+                android:text="Beginner"
+                android:fontFamily="serif-monospace"
+                android:textColor="#000000"
+                android:textSize="10pt"
+                android:background="@drawable/roundedtextviews"/>
+
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:background="#37474F"
+            android:layout_width="match_parent"
+            android:layout_height="25pt"
+            android:orientation="horizontal"
+            >
+
+            <TextView
+                android:background="@drawable/roundedcorners"
+                android:textStyle="bold"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="3"
+                android:gravity="center"
+                android:onClick="beginner"
+                android:text="Locked"
+                android:fontFamily="serif-monospace"
+                android:textColor="#000000"
+                android:textSize="10pt" />
+
+
         </LinearLayout>
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="0dp"
-            android:layout_weight="1">
+            android:layout_weight="1"
+            android:background="#37474F">
 
             <TextView
+                android:textStyle="bold"
+                android:fontFamily="serif-monospace"
                 android:textColor="#000000"
                 android:text="Easy"
                 android:textSize="10pt"
@@ -52,22 +103,22 @@
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
                 android:layout_weight="3"
-                android:background="#eeeeee"
-                android:layout_margin="10pt"
+                android:background="@drawable/roundedtextviews"
+                android:layout_marginBottom="2dp"
                 android:onClick="easy"/>
 
-            <ImageView
-                android:layout_width="0dp"
-                android:layout_weight="1"
-                android:layout_height="match_parent"
-                android:src="@drawable/lock"/>
+
         </LinearLayout>
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="0dp"
-            android:layout_weight="1">
+            android:layout_weight="1"
+            android:background="#37474F">
 
             <TextView
+                android:textStyle="bold"
+                android:fontFamily="serif-monospace"
+                android:layout_marginBottom="2dp"
                 android:textColor="#000000"
                 android:text="Intermediate"
                 android:textSize="10pt"
@@ -75,22 +126,21 @@
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
                 android:layout_weight="3"
-                android:background="#eeeeee"
-                android:layout_margin="10pt"
+                android:background="@drawable/roundedtextviews"
                 android:onClick="intermediate"/>
 
-            <ImageView
-                android:layout_width="0dp"
-                android:layout_weight="1"
-                android:layout_height="match_parent"
-                android:src="@drawable/lock"/>
+
         </LinearLayout>
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="0dp"
-            android:layout_weight="1">
+            android:layout_weight="1"
+            android:background="#37474F">
 
             <TextView
+                android:textStyle="bold"
+                android:fontFamily="serif-monospace"
+                android:layout_marginBottom="2dp"
                 android:textColor="#000000"
                 android:text="Hard"
                 android:textSize="10pt"
@@ -98,22 +148,22 @@
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
                 android:layout_weight="3"
-                android:background="#eeeeee"
-                android:onClick="hard"
-                android:layout_margin="10pt"/>
+                android:background="@drawable/roundedtextviews"
+                android:onClick="hard"/>
 
-            <ImageView
-                android:layout_width="0dp"
-                android:layout_weight="1"
-                android:layout_height="match_parent"
-                android:src="@drawable/lock"/>
+
         </LinearLayout>
         <LinearLayout
+            android:fontFamily="serif-monospace"
             android:layout_width="match_parent"
             android:layout_height="0dp"
-            android:layout_weight="1">
+            android:layout_weight="1"
+            android:background="#37474F">
 
             <TextView
+                android:textStyle="bold"
+                android:fontFamily="serif-monospace"
+                android:layout_marginBottom="2dp"
                 android:textColor="#000000"
                 android:text="Expert"
                 android:textSize="10pt"
@@ -121,15 +171,10 @@
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
                 android:layout_weight="3"
-                android:background="#eeeeee"
-                android:layout_margin="10pt"
-                android:onClick="expert"/>
+                android:background="@drawable/roundedtextviews"
+                android:onClick="hard"/>
 
-            <ImageView
-                android:layout_width="0dp"
-                android:layout_weight="1"
-                android:layout_height="match_parent"
-                android:src="@drawable/lock"/>
+
         </LinearLayout>
     </LinearLayout>
 

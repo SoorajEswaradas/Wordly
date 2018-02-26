@@ -56,14 +56,15 @@
             android:label="@string/title_activity_level5"
             android:launchMode="singleTask"
             android:theme="@style/AppTheme.NoActionBar" />
-        <activity android:name=".dictionary"
-            android:launchMode="singleTask"/>
-        <activity android:name=".searchword"
-            android:launchMode="singleTask"/>
-        <activity android:name=".slider"
-            android:launchMode="singleTask">
-
-        </activity>
+        <activity
+            android:name=".dictionary"
+            android:launchMode="singleTask" />
+        <activity
+            android:name=".searchword"
+            android:launchMode="singleTask" />
+        <activity
+            android:name=".slider"
+            android:launchMode="singleTask"></activity>
     </application>
 
 </manifest>
