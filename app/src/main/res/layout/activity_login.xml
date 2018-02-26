@@ -52,7 +52,7 @@
            <ImageView
                 android:layout_height="match_parent"
                 android:layout_width="10pt"
-                android:src="@drawable/email1"
+                android:src="@drawable/emailuse"
                 />
             <EditText
 
@@ -121,7 +121,7 @@
             android:layout_height="wrap_content"
             android:text="Login"
             android:textStyle="bold"
-            android:textColor="#FFFFFF"
+            android:textColor="#000000"
             android:id="@+id/login"
             android:fontFamily="serif-monospace"
             android:textSize="18sp"
@@ -150,11 +150,12 @@
         android:fontFamily="sans-serif"
         android:textSize="18sp"
         android:textStyle="bold"
-        android:textColor="#FFFFFF"
+        android:textColor="#000000"
         android:layout_gravity="center"
         android:background="@drawable/roundedcorners"
         android:onClick="dictionary"
         android:layout_alignParentBottom="true"
+        android:layout_margin="5dp"
         />
 
 
