@@ -94,6 +94,7 @@ public class slideadapter extends PagerAdapter {
                     Intent intent=new Intent(v.getContext(),finalquiz.class);
                     ((slider)context).finish();
                     context.startActivity(intent);
+                    ((slider) context).overridePendingTransition(R.anim.fadein,R.anim.fadeout);
 
                 }
             });

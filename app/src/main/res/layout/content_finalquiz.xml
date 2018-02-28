@@ -113,7 +113,7 @@
             android:layout_marginLeft="2pt"
             android:layout_marginRight="2pt"
             android:layout_weight="1"
-            android:background="#000000"
+            android:background="#FFFFFF"
             android:orientation="horizontal"
 
             >
@@ -124,7 +124,7 @@
                 android:layout_height="match_parent"
                 android:layout_margin="1pt"
                 android:layout_weight="1"
-                android:background="#AFFFFF"
+                android:background="@drawable/roundedcorners"
                 android:text=""
                 android:textColor="#000000"
                 android:textSize="18sp" />
@@ -140,7 +140,7 @@
                 android:layout_height="match_parent"
                 android:layout_margin="1pt"
                 android:layout_weight="1"
-                android:background="#AFFFFF"
+                android:background="@drawable/roundedcorners"
                 android:text=""
                 android:textColor="#000000"
                 android:textSize="18sp" />
@@ -153,7 +153,7 @@
             android:layout_marginLeft="2pt"
             android:layout_marginRight="2pt"
             android:layout_weight="1"
-            android:background="#000000"
+            android:background="#FFFFFF"
             android:orientation="horizontal">
 
             <Button
@@ -162,7 +162,7 @@
                 android:layout_height="match_parent"
                 android:layout_margin="1pt"
                 android:layout_weight="1"
-                android:background="#AFFFFF"
+                android:background="@drawable/roundedcorners"
                 android:text=""
                 android:textColor="#000000"
                 android:textSize="18sp" />
@@ -178,7 +178,7 @@
                 android:layout_height="match_parent"
                 android:layout_margin="1pt"
                 android:layout_weight="1"
-                android:background="#AFFFFF"
+                android:background="@drawable/roundedcorners"
                 android:text=""
                 android:textColor="#000000"
                 android:textSize="18sp" />

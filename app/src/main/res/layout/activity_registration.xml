@@ -17,7 +17,7 @@
         >
 
         <ImageView
-            android:layout_width="120pt"
+            android:layout_width="100pt"
             android:layout_height="90pt"
             android:layout_gravity="center"
             android:layout_marginBottom="40dp"
@@ -32,7 +32,7 @@
             android:textColor="#000000"
             android:textStyle="bold"
             android:fontFamily="sans-serif"
-            android:textSize="30dp"
+            android:textSize="25dp"
             android:layout_marginBottom="10dp"
             android:layout_gravity="center"
 
@@ -42,16 +42,17 @@
 
 
         <LinearLayout
-            android:layout_gravity="center_vertical"
-            android:layout_width="match_parent"
+            android:layout_gravity="center"
+            android:layout_width="165pt"
             android:layout_height="wrap_content"
+
             >
 
             <ImageView
                 android:layout_marginLeft="5pt"
                 android:layout_height="match_parent"
                 android:layout_width="10pt"
-                android:src="@drawable/username1"
+                android:src="@drawable/username"
                 />
 
 
@@ -66,8 +67,8 @@
                 android:layout_height="wrap_content" />
         </LinearLayout>
         <LinearLayout
-            android:layout_gravity="center_vertical"
-            android:layout_width="match_parent"
+            android:layout_gravity="center"
+            android:layout_width="165pt"
             android:layout_height="wrap_content"
             >
             <ImageView
@@ -89,15 +90,15 @@
                 android:layout_height="wrap_content" />
         </LinearLayout>
         <LinearLayout
-            android:layout_gravity="center_vertical"
-            android:layout_width="match_parent"
+            android:layout_gravity="center"
+            android:layout_width="165pt"
             android:layout_height="wrap_content"
             >
             <ImageView
                 android:layout_marginLeft="5pt"
                 android:layout_height="match_parent"
                 android:layout_width="10pt"
-                android:src="@drawable/phone1"
+                android:src="@drawable/phone"
                 />
 
 
@@ -113,15 +114,15 @@
         </LinearLayout>
 
         <LinearLayout
-            android:layout_width="match_parent"
+            android:layout_width="165pt"
             android:layout_height="wrap_content"
-            android:layout_gravity="center_vertical"
+            android:layout_gravity="center"
             >
             <ImageView
                 android:layout_marginLeft="5pt"
                 android:layout_height="match_parent"
                 android:layout_width="10pt"
-                android:src="@drawable/password1"
+                android:src="@drawable/password"
                 />
 
 
@@ -139,15 +140,15 @@
                 android:layout_height="wrap_content" />
         </LinearLayout>
         <LinearLayout
-            android:layout_width="match_parent"
+            android:layout_width="165pt"
             android:layout_height="wrap_content"
-            android:layout_gravity="center_vertical"
+            android:layout_gravity="center"
             >
             <ImageView
                 android:layout_marginLeft="5pt"
                 android:layout_height="match_parent"
                 android:layout_width="10pt"
-                android:src="@drawable/password1"
+                android:src="@drawable/password"
                 />
 
 
@@ -167,7 +168,7 @@
 
         <Button
             android:layout_marginTop="5dp"
-            android:layout_width="150pt"
+            android:layout_width="110pt"
             android:layout_height="wrap_content"
             android:text="Register"
             android:id="@+id/register"

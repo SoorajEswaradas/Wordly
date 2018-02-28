@@ -341,13 +341,15 @@ public class finalquiz extends AppCompatActivity
                 Intent i=new Intent(this,level3.class);
                 startActivity(i);
             }
-           if(score<=8)
+           else if(score<=8)
             {
+                finish();
                 Intent i=new Intent(this,level4.class);
                 startActivity(i);
             }
-            if(score<=10)
+            else 
             {
+                finish();
                 Intent i=new Intent(this,level5.class);
                 startActivity(i);
             }

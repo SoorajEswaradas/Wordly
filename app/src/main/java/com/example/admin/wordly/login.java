@@ -89,6 +89,7 @@ public class login extends Activity implements View.OnClickListener {
                            finish();
                            Intent intent=new Intent(login.this,route.class);
                            startActivity(intent);
+                           overridePendingTransition(R.anim.fadein,R.anim.fadeout);
 
                        }
                        else
@@ -106,6 +107,7 @@ public class login extends Activity implements View.OnClickListener {
         finish();
         Intent intent=new Intent(this, registration.class);
         startActivity(intent);
+        overridePendingTransition(R.anim.fadein,R.anim.fadeout);
 
 
     }
@@ -122,6 +124,7 @@ public class login extends Activity implements View.OnClickListener {
     public void dictionary(View view) {
         Intent i=new Intent(this,searchword.class);
         startActivity(i);
+        overridePendingTransition(R.anim.fadein,R.anim.fadeout);;
     }
 
 

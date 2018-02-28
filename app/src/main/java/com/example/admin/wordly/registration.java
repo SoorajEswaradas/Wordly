@@ -65,6 +65,7 @@ public class registration extends Activity implements View.OnClickListener {
     {
         Intent intent=new Intent(this, login.class);
         startActivity(intent);
+        overridePendingTransition(R.anim.fadein,R.anim.fadeout);
         finish();
     }
 

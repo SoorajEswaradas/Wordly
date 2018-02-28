@@ -45,6 +45,7 @@ public class route extends AppCompatActivity {
                     finish();
                     Intent i=new Intent(route.this,slider.class);
                     startActivity(i);
+                    overridePendingTransition(R.anim.fadein,R.anim.fadeout);
                 }
                 else if (score.equals("0")||score.equals("1")||score.equals("2"))
                 {
