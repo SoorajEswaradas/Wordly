@@ -64,7 +64,15 @@
             android:launchMode="singleTask" />
         <activity
             android:name=".slider"
-            android:launchMode="singleTask"></activity>
+            android:launchMode="singleTask" />
+        <activity
+            android:name=".beginner"
+            android:label="Beginner"
+            android:theme="@style/AppTheme" />
+        <activity
+            android:name=".beginnerfinal"
+            android:label="@string/title_activity_beginnerfinal"
+            android:theme="@style/AppTheme"></activity>
     </application>
 
 </manifest>

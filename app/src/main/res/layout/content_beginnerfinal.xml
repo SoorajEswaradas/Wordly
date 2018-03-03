@@ -1,0 +1,156 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    app:layout_behavior="@string/appbar_scrolling_view_behavior"
+    tools:context="com.example.admin.wordly.beginnerfinal"
+    tools:showIn="@layout/activity_beginnerfinal"
+    android:orientation="vertical"
+    >
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="200pt"
+            android:layout_margin="5pt"
+            android:background="@drawable/roundedcorners"
+            android:orientation="vertical">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="0.6"
+                android:orientation="horizontal">
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="3"
+                android:textSize="30sp"
+                android:text="Word"
+                android:id="@+id/word"
+                android:gravity="center"
+                android:textStyle="bold"/>
+
+                <ImageView
+                    android:layout_width="0dp"
+                    android:layout_weight="1"
+                    android:layout_height="20pt"
+                    android:src="@drawable/pronounce"
+                    android:layout_gravity="center"
+                    android:onClick="pronounce"/>
+
+                <ImageView
+                    android:layout_width="0dp"
+                    android:layout_weight="1"
+                    android:layout_height="20pt"
+                    android:src="@drawable/share"
+                    android:layout_gravity="center"
+                    android:onClick="share"/>
+            </LinearLayout>
+            <LinearLayout
+                android:layout_height="0dp"
+                android:layout_weight="1"
+                android:layout_width="match_parent"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:textSize="20sp"
+                    android:text="Meaning :"
+                    android:textStyle="bold"
+                    android:gravity="center"/>
+                <TextView
+                    android:layout_margin="2pt"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:textSize="15sp"
+                    android:text="."
+                    android:id="@+id/meaning"
+                    android:gravity="center_vertical"
+                    />
+
+            </LinearLayout>
+            <LinearLayout
+                android:layout_height="0dp"
+                android:layout_weight="1"
+                android:layout_width="match_parent"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:textSize="20sp"
+                    android:text="Example 1 :"
+                    android:textStyle="bold"
+                    android:gravity="center"/>
+                <TextView
+                    android:layout_margin="2pt"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:textSize="15sp"
+                    android:id="@+id/example1"
+                    android:text="."
+                    android:gravity="center_vertical"
+                   />
+
+            </LinearLayout>
+            <LinearLayout
+                android:layout_height="0dp"
+                android:layout_weight="1"
+                android:layout_width="match_parent"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:textSize="20sp"
+                    android:text="Example 2 :"
+                    android:textStyle="bold"
+                    android:gravity="center"/>
+
+                <TextView
+                    android:layout_margin="2pt"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:id="@+id/example2"
+                    android:textSize="15sp"
+                    android:text="."
+                    android:gravity="center_vertical"
+                    />
+
+            </LinearLayout>
+        </LinearLayout>
+<LinearLayout
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="horizontal">
+        <Button
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_height="wrap_content"
+            android:text="Previous word"
+            android:background="@drawable/roundedcorners"
+            android:layout_margin="5pt"
+            android:onClick="previous"/>
+       <Button
+        android:layout_width="0dp"
+           android:layout_weight="1"
+        android:layout_height="wrap_content"
+        android:text="Next word"
+        android:background="@drawable/roundedcorners"
+        android:layout_margin="5pt"
+        android:onClick="next"/>
+</LinearLayout>
+
+</LinearLayout>
+
+

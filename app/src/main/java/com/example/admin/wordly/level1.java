@@ -123,7 +123,7 @@ public class level1 extends AppCompatActivity
     }
     public void beginner(View view)
     {
-       Intent i=new Intent(this,level1.class);
+       Intent i=new Intent(this,beginnerfinal.class);
        startActivity(i);
 
     }

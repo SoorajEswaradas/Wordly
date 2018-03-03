@@ -5,12 +5,12 @@
     android:layout_height="match_parent"
     tools:context="com.example.admin.wordly.login"
     >
-
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
+        android:layout_height="wrap_content"
         android:orientation="vertical"
         android:gravity="center"
+        android:background="@drawable/book"
         >
 
         <ImageView
@@ -93,7 +93,8 @@
                 android:textColor="#000000"
                 android:textColorHint="#000000"
                 android:textSize="15sp"
-                android:fontFamily="monospace"/>
+                android:fontFamily="monospace"
+                />
         </LinearLayout>
           <!--  <EditText
                 android:id="@+id/search"
@@ -129,7 +130,7 @@
             />
 
         <TextView
-            android:layout_marginBottom="10dp"
+            android:layout_marginBottom="10pt"
             android:layout_marginTop="8dp"
             android:textSize="17sp"
             android:textColor="#D32F2F"
@@ -139,6 +140,30 @@
             android:text="New User? Sign Up "
             android:onClick="toregister"/>
 
+        <!--<TextView
+            android:layout_marginBottom="10dp"
+            android:layout_marginTop="8dp"
+            android:textSize="17sp"
+            android:textColor="#D32F2F"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:text="OR"
+            android:onClick="toregister"/>
+        <Button
+            android:layout_marginBottom="10dp"
+            android:layout_width="75pt"
+            android:layout_height="wrap_content"
+            android:text="Google Signup"
+            android:textStyle="bold"
+            android:textColor="#000000"
+            android:id="@+id/google"
+            android:fontFamily="sa"
+            android:textSize="18sp"
+            android:layout_gravity="center"
+            android:background="@drawable/roundedtextviews"
+
+            />-->
         </LinearLayout>
 
        <!-- <Button

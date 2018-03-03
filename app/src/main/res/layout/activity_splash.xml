@@ -12,7 +12,8 @@
         android:gravity="center"
         android:orientation="vertical"
         tools:layout_editor_absoluteX="52dp"
-        tools:layout_editor_absoluteY="118dp">
+        tools:layout_editor_absoluteY="118dp"
+        android:background="@drawable/book">
 
         <ImageView
             android:layout_width="wrap_content"

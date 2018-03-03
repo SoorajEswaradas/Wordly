@@ -347,7 +347,7 @@ public class finalquiz extends AppCompatActivity
                 Intent i=new Intent(this,level4.class);
                 startActivity(i);
             }
-            else 
+            else
             {
                 finish();
                 Intent i=new Intent(this,level5.class);
