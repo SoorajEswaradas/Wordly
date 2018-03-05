@@ -8,6 +8,7 @@
         android:name=".fbquiz"
         android:allowBackup="true"
         android:label="Wordly"
+        android:icon="@drawable/icon"
         android:roundIcon="@drawable/icon"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
@@ -71,8 +72,8 @@
             android:theme="@style/AppTheme" />
         <activity
             android:name=".beginnerfinal"
-            android:label="@string/title_activity_beginnerfinal"
-            android:theme="@style/AppTheme"></activity>
+            android:label="Beginner"
+            android:theme="@style/AppTheme"/>
     </application>
 
 </manifest>

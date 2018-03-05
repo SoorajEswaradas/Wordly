@@ -13,10 +13,12 @@
 
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="200pt"
+            android:layout_height="0dp"
+            android:layout_weight="4"
             android:layout_margin="5pt"
             android:background="@drawable/roundedcorners"
-            android:orientation="vertical">
+            android:orientation="vertical"
+            android:gravity="center">
 
             <LinearLayout
                 android:layout_width="match_parent"
@@ -28,7 +30,7 @@
                 android:layout_height="match_parent"
                 android:layout_weight="3"
                 android:textSize="30sp"
-                android:text="Word"
+                android:text=""
                 android:id="@+id/word"
                 android:gravity="center"
                 android:textStyle="bold"/>
@@ -131,7 +133,8 @@
         </LinearLayout>
 <LinearLayout
     android:layout_width="match_parent"
-    android:layout_height="wrap_content"
+    android:layout_height="0dp"
+    android:layout_weight="1"
     android:orientation="horizontal">
         <Button
             android:layout_width="0dp"
@@ -150,6 +153,34 @@
         android:layout_margin="5pt"
         android:onClick="next"/>
 </LinearLayout>
+   <LinearLayout
+       android:layout_width="match_parent"
+       android:layout_height="0dp"
+       android:layout_weight="1"
+       android:orientation="vertical"
+       >
+    <ProgressBar
+        android:layout_width="match_parent"
+        android:layout_height="0pt"
+        android:layout_weight="1"
+        style="@android:style/Widget.Holo.Light.ProgressBar.Horizontal"
+        android:id="@+id/probar"
+        android:padding="2pt"
+        android:progressBackgroundTint="#B2DFDB"
+        />
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="0pt"
+        android:layout_weight="3"
+        android:id="@+id/prognumber"
+        android:textSize="20sp"
+        android:textColor="#12DFDB"
+        android:gravity="center"
+
+        />
+
+   </LinearLayout>
+
 
 </LinearLayout>
 
