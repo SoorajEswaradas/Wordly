@@ -52,11 +52,11 @@ public class beginnerfinal extends AppCompatActivity {
 
 
         links=new String[5];
-        links[0]="https://firebasestorage.googleapis.com/v0/b/wordly-b22f0.appspot.com/o/aback--_gb_1.mp3?alt=media&token=db22ddc1-bcec-4a29-aa43-80b219446ffa";
-        links[1]="https://firebasestorage.googleapis.com/v0/b/wordly-b22f0.appspot.com/o/baffle--_gb_1.mp3?alt=media&token=93327c8a-2ea4-4376-a007-f0c6b3db1437";
-        links[2]="https://firebasestorage.googleapis.com/v0/b/wordly-b22f0.appspot.com/o/caricature--_gb_1.mp3?alt=media&token=087e2f2e-3e25-4679-bf0d-76229bc1b491";
-        links[3]="https://firebasestorage.googleapis.com/v0/b/wordly-b22f0.appspot.com/o/debilitate--_gb_1.mp3?alt=media&token=0f19d314-3a66-4ad4-9623-482f11c761d8";
-        links[4]="https://firebasestorage.googleapis.com/v0/b/wordly-b22f0.appspot.com/o/eccentric--_gb_1.mp3?alt=media&token=746fd878-302a-48fc-ac5c-81940815a0d6";
+        links[0]="https://firebasestorage.googleapis.com/v0/b/wordly-b22f0.appspot.com/o/beginervoice%2Faback--_gb_1.mp3?alt=media&token=f3847e0f-8c9a-4716-a98f-8257d174a340";
+        links[1]="https://firebasestorage.googleapis.com/v0/b/wordly-b22f0.appspot.com/o/beginervoice%2Fbaffle--_gb_1.mp3?alt=media&token=18688c0e-f2be-49e9-9373-aeb2b96054a0";
+        links[2]="https://firebasestorage.googleapis.com/v0/b/wordly-b22f0.appspot.com/o/beginervoice%2Fcaricature--_gb_1.mp3?alt=media&token=476c2fa6-68fe-47d1-93c6-81ad3541b90e";
+        links[3]="https://firebasestorage.googleapis.com/v0/b/wordly-b22f0.appspot.com/o/beginervoice%2Fdebilitate--_gb_1.mp3?alt=media&token=7d9be315-8de2-4450-a270-46590d519bc0";
+        links[4]="https://firebasestorage.googleapis.com/v0/b/wordly-b22f0.appspot.com/o/beginervoice%2Feccentric--_gb_1.mp3?alt=media&token=e02f71bd-23df-49c1-8f9f-a5d2e1f601f2";
 
 
         Window window=getWindow();

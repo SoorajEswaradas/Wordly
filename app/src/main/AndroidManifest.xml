@@ -74,6 +74,13 @@
             android:name=".beginnerfinal"
             android:label="Beginner"
             android:theme="@style/AppTheme"/>
+
+        <receiver android:name=".notification"
+            android:exported="false">
+             <intent-filter>
+                 <action android:name="wordly.notification"/>
+             </intent-filter>
+        </receiver>
     </application>
 
 </manifest>

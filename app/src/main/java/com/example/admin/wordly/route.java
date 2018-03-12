@@ -17,6 +17,9 @@ import com.google.firebase.database.FirebaseDatabase;
 public class route extends AppCompatActivity {
 
 
+
+    public String score="";
+
     //private FirebaseDatabase fbdatabase;
 
     @Override
@@ -39,47 +42,40 @@ public class route extends AppCompatActivity {
         scoreref.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
-                String score=dataSnapshot.getValue(String.class);
-                if(score.equals("100"))
-                {
-                    finish();
-                    Intent i=new Intent(route.this,slider.class);
-                    startActivity(i);
-                    overridePendingTransition(R.anim.fadein,R.anim.fadeout);
-                }
-                else if (score.equals("0")||score.equals("1")||score.equals("2"))
-                {
-                    finish();
-                    Intent i=new Intent(route.this,level1.class);
-                    startActivity(i);
-                }
-                else if (score.equals("3")||score.equals("4"))
-                {
-                    finish();
-                    Intent i=new Intent(route.this,level2.class);
-                    startActivity(i);
-                }
-                else if (score.equals("5")||score.equals("6"))
-                {
-                    finish();
-                    Intent i=new Intent(route.this,level3.class);
-                    startActivity(i);
-                }
-                else if (score.equals("7")||score.equals("8"))
-                {
-                    finish();
-                    Intent i=new Intent(route.this,level4.class);
-                    startActivity(i);
-                }
-                else if (score.equals("9")||score.equals("10"))
-                {
-                    finish();
-                    Intent i=new Intent(route.this,level5.class);
-                    startActivity(i);
-                }
-                else
-                {
-                    finish();
+                score = dataSnapshot.getValue(String.class);
+                Intent j = new Intent(route.this, level1.class);
+                startActivity(j);
+                finish();
+
+                if (score != null) {
+                    if (score.equals("100")) {
+                        finish();
+                        Intent i = new Intent(route.this, slider.class);
+                        startActivity(i);
+                        overridePendingTransition(R.anim.fadein, R.anim.fadeout);
+                    } else if (score.equals("0") || score.equals("1") || score.equals("2")) {
+                        finish();
+                        Intent i = new Intent(route.this, level1.class);
+                        startActivity(i);
+                    } else if (score.equals("3") || score.equals("4")) {
+                        finish();
+                        Intent i = new Intent(route.this, level2.class);
+                        startActivity(i);
+                    } else if (score.equals("5") || score.equals("6")) {
+                        finish();
+                        Intent i = new Intent(route.this, level3.class);
+                        startActivity(i);
+                    } else if (score.equals("7") || score.equals("8")) {
+                        finish();
+                        Intent i = new Intent(route.this, level4.class);
+                        startActivity(i);
+                    } else if (score.equals("9") || score.equals("10")) {
+                        finish();
+                        Intent i = new Intent(route.this, level5.class);
+                        startActivity(i);
+                    } else {
+                        finish();
+                    }
                 }
             }
 
