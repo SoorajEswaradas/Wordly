@@ -10,7 +10,7 @@
     <ProgressBar
         android:layout_width="20pt"
         android:layout_height="20pt"
-        android:gravity="center"/>
+        android:gravity="center" />
 
 
 </LinearLayout>
