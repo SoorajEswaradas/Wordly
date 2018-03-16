@@ -13,6 +13,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.Window;
 import android.widget.Toast;
 
 import com.firebase.client.Firebase;
@@ -32,6 +33,9 @@ public class level5 extends AppCompatActivity
 
         firebaseauth=FirebaseAuth.getInstance();
 
+        Window window=getWindow();
+        window.setStatusBarColor(getResources().getColor(R.color.colorbeginner));
+        getSupportActionBar().setElevation(0);
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(
                 this, drawer, toolbar, R.string.navigation_drawer_open, R.string.navigation_drawer_close);
@@ -107,7 +111,7 @@ public class level5 extends AppCompatActivity
     }
     public void easy(View view)
     {
-        Intent i=new Intent(this,level1.class);
+        Intent i=new Intent(this,easy.class);
         startActivity(i);
     }
 

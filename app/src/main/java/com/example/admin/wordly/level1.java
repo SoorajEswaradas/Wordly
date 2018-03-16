@@ -41,6 +41,9 @@ public class level1 extends AppCompatActivity
        if(firststart)
            showquiz();
 */
+        Window window=getWindow();
+        window.setStatusBarColor(getResources().getColor(R.color.colorbeginner));
+        getSupportActionBar().setElevation(0);
         firebaseauth=FirebaseAuth.getInstance();
 
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);

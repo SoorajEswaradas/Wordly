@@ -13,6 +13,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.Window;
 import android.widget.Toast;
 
 import com.google.firebase.auth.FirebaseAuth;
@@ -26,6 +27,10 @@ public class level2 extends AppCompatActivity
         setContentView(R.layout.activity_level2);
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
+
+        Window window=getWindow();
+        window.setStatusBarColor(getResources().getColor(R.color.colorbeginner));
+        getSupportActionBar().setElevation(0);
 
 
         firebaseauth= FirebaseAuth.getInstance();
@@ -98,13 +103,13 @@ public class level2 extends AppCompatActivity
     }
     public void beginner(View view)
     {
-        Intent i=new Intent(this,level1.class);
+        Intent i=new Intent(this,beginnerfinal.class);
         startActivity(i);
 
     }
     public void easy(View view)
     {
-        Intent i=new Intent(this,level2.class);
+        Intent i=new Intent(this,easy.class);
         startActivity(i);
     }
 

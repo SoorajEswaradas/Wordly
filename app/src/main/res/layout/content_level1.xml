@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#37474F"
+    android:background="@drawable/book"
     app:layout_behavior="@string/appbar_scrolling_view_behavior"
     tools:context="com.example.admin.wordly.level1"
     tools:showIn="@layout/app_bar_level1">
@@ -14,98 +14,68 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:orientation="vertical"
-        android:background="#37474F">
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="25pt"
-            android:orientation="horizontal"
-            android:background="#37474F"
-            >
-
-            <TextView
-
-                android:textStyle="bold"
-                android:layout_marginTop="3dp"
-                android:layout_width="0dp"
-                android:layout_height="match_parent"
-                android:layout_weight="3"
-                android:background="@drawable/roundedcorners"
-                android:gravity="center"
-                android:onClick="beginner"
-                android:text="Unlocked"
-                android:fontFamily="serif-monospace"
-                android:textColor="#000000"
-                android:textSize="10pt" />
+        android:background="@drawable/book">
 
 
-        </LinearLayout>
+
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="0dp"
             android:layout_weight="1"
             android:orientation="horizontal"
-            android:background="#37474F"
             >
 
             <TextView
                 android:textStyle="bold"
                 android:layout_width="0dp"
-                android:layout_height="match_parent"
+                android:layout_height="30pt"
                 android:layout_weight="3"
                 android:gravity="center"
+                android:layout_gravity="center"
                 android:onClick="beginner"
                 android:text="Beginner"
                 android:fontFamily="serif-monospace"
                 android:textColor="#000000"
                 android:textSize="10pt"
-                android:background="@drawable/roundedtextviews"/>
+                android:background="@drawable/roundedcorners"/>
+            <TextView
+                android:layout_margin="2pt"
+                android:layout_width="30pt"
+                android:layout_height="30pt"
+                android:layout_gravity="center"
+                android:background="@drawable/unlock12"/>
 
 
         </LinearLayout>
 
+
+
         <LinearLayout
-            android:background="#37474F"
             android:layout_width="match_parent"
-            android:layout_height="25pt"
+            android:layout_height="0dp"
+            android:layout_weight="1"
             android:orientation="horizontal"
             >
 
             <TextView
-                android:background="@drawable/roundedcorners"
                 android:textStyle="bold"
                 android:layout_width="0dp"
-                android:layout_height="match_parent"
+                android:layout_height="30pt"
                 android:layout_weight="3"
                 android:gravity="center"
-                android:onClick="beginner"
-                android:text="Locked"
-                android:fontFamily="serif-monospace"
-                android:textColor="#000000"
-                android:textSize="10pt" />
-
-
-        </LinearLayout>
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="0dp"
-            android:layout_weight="1"
-            android:background="#37474F">
-
-            <TextView
-                android:textStyle="bold"
-                android:fontFamily="serif-monospace"
-                android:textColor="#000000"
+                android:layout_gravity="center"
+                android:onClick="easy"
                 android:text="Easy"
+                android:fontFamily="serif-monospace"
+                android:textColor="#000000"
                 android:textSize="10pt"
-                android:gravity="center"
-                android:layout_width="0dp"
-                android:layout_height="match_parent"
-                android:layout_weight="3"
-                android:background="@drawable/roundedtextviews"
-                android:layout_marginBottom="2dp"
-                android:onClick="easy"/>
+                android:background="@drawable/roundedcorners"/>
+            <TextView
+                android:layout_margin="2pt"
+                android:layout_width="30pt"
+                android:layout_height="30pt"
+                android:layout_gravity="center"
+                android:background="@drawable/lock12"/>
 
 
         </LinearLayout>
@@ -113,21 +83,28 @@
             android:layout_width="match_parent"
             android:layout_height="0dp"
             android:layout_weight="1"
-            android:background="#37474F">
+            android:orientation="horizontal"
+            >
 
             <TextView
                 android:textStyle="bold"
-                android:fontFamily="serif-monospace"
-                android:layout_marginBottom="2dp"
-                android:textColor="#000000"
+                android:layout_width="0dp"
+                android:layout_height="30pt"
+                android:layout_weight="3"
+                android:gravity="center"
+                android:layout_gravity="center"
+                android:onClick="intermediate"
                 android:text="Intermediate"
+                android:fontFamily="serif-monospace"
+                android:textColor="#000000"
                 android:textSize="10pt"
-                android:gravity="center"
-                android:layout_width="0dp"
-                android:layout_height="match_parent"
-                android:layout_weight="3"
-                android:background="@drawable/roundedtextviews"
-                android:onClick="intermediate"/>
+                android:background="@drawable/roundedcorners"/>
+            <TextView
+                android:layout_margin="2pt"
+                android:layout_width="30pt"
+                android:layout_height="30pt"
+                android:layout_gravity="center"
+                android:background="@drawable/lock12"/>
 
 
         </LinearLayout>
@@ -135,47 +112,60 @@
             android:layout_width="match_parent"
             android:layout_height="0dp"
             android:layout_weight="1"
-            android:background="#37474F">
+            android:orientation="horizontal"
+            >
 
             <TextView
                 android:textStyle="bold"
-                android:fontFamily="serif-monospace"
-                android:layout_marginBottom="2dp"
-                android:textColor="#000000"
+                android:layout_width="0dp"
+                android:layout_height="30pt"
+                android:layout_weight="3"
+                android:gravity="center"
+                android:layout_gravity="center"
+                android:onClick="hard"
                 android:text="Hard"
+                android:fontFamily="serif-monospace"
+                android:textColor="#000000"
                 android:textSize="10pt"
-                android:gravity="center"
-                android:layout_width="0dp"
-                android:layout_height="match_parent"
-                android:layout_weight="3"
-                android:background="@drawable/roundedtextviews"
-                android:onClick="hard"/>
+                android:background="@drawable/roundedcorners"/>
+            <TextView
+                android:layout_margin="2pt"
+                android:layout_width="30pt"
+                android:layout_height="30pt"
+                android:layout_gravity="center"
+                android:background="@drawable/lock12"/>
 
 
         </LinearLayout>
         <LinearLayout
-            android:fontFamily="serif-monospace"
             android:layout_width="match_parent"
             android:layout_height="0dp"
             android:layout_weight="1"
-            android:background="#37474F">
+            android:orientation="horizontal"
+            >
 
             <TextView
                 android:textStyle="bold"
-                android:fontFamily="serif-monospace"
-                android:layout_marginBottom="2dp"
-                android:textColor="#000000"
-                android:text="Expert"
-                android:textSize="10pt"
-                android:gravity="center"
                 android:layout_width="0dp"
-                android:layout_height="match_parent"
+                android:layout_height="30pt"
                 android:layout_weight="3"
-                android:background="@drawable/roundedtextviews"
-                android:onClick="hard"/>
+                android:gravity="center"
+                android:layout_gravity="center"
+                android:onClick="expert"
+                android:text="Expert"
+                android:fontFamily="serif-monospace"
+                android:textColor="#000000"
+                android:textSize="10pt"
+                android:background="@drawable/roundedcorners"/>
+            <TextView
+                android:layout_margin="2pt"
+                android:layout_width="30pt"
+                android:layout_height="30pt"
+                android:layout_gravity="center"
+                android:background="@drawable/lock12"/>
 
 
         </LinearLayout>
-    </LinearLayout>
 
+    </LinearLayout>
 </LinearLayout>

@@ -7,8 +7,8 @@
     <application
         android:name=".fbquiz"
         android:allowBackup="true"
-        android:label="Wordly"
         android:icon="@drawable/icon"
+        android:label="Wordly"
         android:roundIcon="@drawable/icon"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
@@ -73,14 +73,20 @@
         <activity
             android:name=".beginnerfinal"
             android:label="Beginner"
-            android:theme="@style/AppTheme"/>
+            android:theme="@style/AppTheme" />
 
-        <receiver android:name=".notification"
+        <receiver
+            android:name=".notification"
             android:exported="false">
-             <intent-filter>
-                 <action android:name="wordly.notification"/>
-             </intent-filter>
+            <intent-filter>
+                <action android:name="wordly.notification" />
+            </intent-filter>
         </receiver>
+
+        <activity
+            android:name=".easy"
+            android:label="@string/title_activity_easy"
+            android:theme="@style/AppTheme"></activity>
     </application>
 
 </manifest>
