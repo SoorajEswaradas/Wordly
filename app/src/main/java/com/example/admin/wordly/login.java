@@ -121,10 +121,13 @@ public class login extends Activity implements View.OnClickListener {
         }
     }
 
-    public void dictionary(View view) {
-        Intent i=new Intent(this,searchword.class);
+
+    public void forgotpass(View view)
+    {
+        Intent i=new Intent(this,forgotpassword.class);
         startActivity(i);
-        overridePendingTransition(R.anim.fadein,R.anim.fadeout);;
+        overridePendingTransition(R.anim.fadein,R.anim.fadeout);
+
     }
 
 

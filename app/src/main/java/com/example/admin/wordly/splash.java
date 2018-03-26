@@ -10,14 +10,21 @@ import android.os.Bundle;
 import android.view.Window;
 import android.view.WindowManager;
 
+
+import java.util.Arrays;
 import java.util.Calendar;
+import java.util.List;
 
 public class splash extends Activity {
 
     private static int timeout=3000;
+    private static final int RC_SIGN_IN = 123;
     @Override
+
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
+
 
         requestWindowFeature(Window.FEATURE_NO_TITLE);
         this.getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN,WindowManager.LayoutParams.FLAG_FULLSCREEN);

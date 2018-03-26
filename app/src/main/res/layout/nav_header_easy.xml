@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="@dimen/nav_header_height"
+    android:background="#FFFFFF"
+    android:gravity="bottom"
+    android:orientation="vertical"
+    android:theme="@style/ThemeOverlay.AppCompat.Dark">
+
+    <ImageView
+        android:id="@+id/imageView"
+        android:layout_width="wrap_content"
+        android:layout_height="45pt"
+        android:background="#FFFFFF"
+        app:srcCompat="@drawable/logo" />
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="10pt"
+        android:paddingLeft="2pt"
+        android:text="Wordly"
+        android:textColor="#000000"
+        android:textAppearance="@style/TextAppearance.AppCompat.Body1" />
+
+    <TextView
+        android:paddingLeft="2pt"
+        android:id="@+id/textView"
+        android:layout_width="wrap_content"
+        android:layout_height="10pt"
+        android:textColor="#000000"
+        android:text="info@wordly.com" />
+
+</LinearLayout>

@@ -86,7 +86,8 @@
         <activity
             android:name=".easy"
             android:label="@string/title_activity_easy"
-            android:theme="@style/AppTheme"></activity>
+            android:theme="@style/AppTheme" />
+        <activity android:name=".forgotpassword"></activity>
     </application>
 
 </manifest>
