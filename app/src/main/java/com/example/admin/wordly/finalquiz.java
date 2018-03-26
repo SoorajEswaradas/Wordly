@@ -4,6 +4,10 @@ import android.content.ClipData;
 import android.content.Intent;
 import android.os.Bundle;
 
+import java.security.SecureRandom;
+import java.util.Random;
+
+import android.os.CountDownTimer;
 import android.support.design.widget.Snackbar;
 import android.view.View;
 import android.support.design.widget.NavigationView;
@@ -34,15 +38,17 @@ import java.util.Map;
 public class finalquiz extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
 
+    public CountDownTimer cdt;
     public FirebaseAuth firebaseAuth;
     private TextView question;
     public TextView scored;
     public FirebaseDatabase fbdatabase;
-
+    public TextView timer;
     private Button choice1,choice2,choice3,choice4;
     private TextView qtn;
     public int score=0;
     private int qtnnumber=0;
+    private int timeremain=16;
     private String ans="";
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -52,6 +58,7 @@ public class finalquiz extends AppCompatActivity
         window.setStatusBarColor(getResources().getColor(R.color.colorbeginner));
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
+
 
 
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
@@ -66,6 +73,8 @@ public class finalquiz extends AppCompatActivity
         firebaseAuth=FirebaseAuth.getInstance();
         fbdatabase=FirebaseDatabase.getInstance();
 
+
+
         question=(TextView)findViewById(R.id.question);
         choice1=(Button)findViewById(R.id.choice1);
         choice2=(Button)findViewById(R.id.choice2);
@@ -73,7 +82,7 @@ public class finalquiz extends AppCompatActivity
         choice4=(Button)findViewById(R.id.choice4);
         scored=(TextView)findViewById(R.id.scored);
         qtn=(TextView)findViewById(R.id.qtn);
-
+        timer=(TextView)findViewById(R.id.timer);
         updatequestion();
 
         choice1.setOnClickListener(new View.OnClickListener() {
@@ -84,12 +93,15 @@ public class finalquiz extends AppCompatActivity
                     score++;
                     Toast.makeText(finalquiz.this, "Right answer", Toast.LENGTH_SHORT).show();
                     updatescore(score);
+                    cdt.cancel();
                     updatequestion();
+
                 }
                 else
                 {
                     Toast.makeText(finalquiz.this, "Wrong answer", Toast.LENGTH_SHORT).show();
                     updatequestion();
+                    cdt.cancel();
                 }
             }
         });
@@ -101,7 +113,7 @@ public class finalquiz extends AppCompatActivity
                 {
                     score++;
                     Toast.makeText(finalquiz.this, "Right answer", Toast.LENGTH_SHORT).show();
-
+                    cdt.cancel();
                     updatescore(score);
                     updatequestion();
                 }
@@ -109,6 +121,7 @@ public class finalquiz extends AppCompatActivity
                 {
                     Toast.makeText(finalquiz.this, "Wrong answer", Toast.LENGTH_SHORT).show();
                     updatequestion();
+                    cdt.cancel();
                 }
             }
         });
@@ -122,11 +135,13 @@ public class finalquiz extends AppCompatActivity
                     Toast.makeText(finalquiz.this, "Right answer", Toast.LENGTH_SHORT).show();
                     updatescore(score);
                     updatequestion();
+                    cdt.cancel();
                 }
                 else
                 {
                     Toast.makeText(finalquiz.this, "Wrong answer", Toast.LENGTH_SHORT).show();
                     updatequestion();
+                    cdt.cancel();
                 }
             }
         });
@@ -140,11 +155,13 @@ public class finalquiz extends AppCompatActivity
                     Toast.makeText(finalquiz.this, "Right answer", Toast.LENGTH_SHORT).show();
                     updatescore(score);
                     updatequestion();
+                    cdt.cancel();
                 }
                 else
                 {
                     Toast.makeText(finalquiz.this, "Wrong answer", Toast.LENGTH_SHORT).show();
                     updatequestion();
+                    cdt.cancel();
                 }
             }
         });
@@ -154,12 +171,7 @@ public class finalquiz extends AppCompatActivity
 
     @Override
     public void onBackPressed() {
-        DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
-        if (drawer.isDrawerOpen(GravityCompat.START)) {
-            drawer.closeDrawer(GravityCompat.START);
-        } else {
-            super.onBackPressed();
-        }
+       finish();
 
     }
 
@@ -218,6 +230,8 @@ public class finalquiz extends AppCompatActivity
 
     public void updatequestion()
     {
+
+
         Firebase questionref,choice1ref,choice2ref,choice3ref,choice4ref,answerref;
         questionref = new Firebase("https://wordly-b22f0.firebaseio.com/quiz/"+qtnnumber+"/question");
         questionref.addValueEventListener(new ValueEventListener() {
@@ -309,12 +323,28 @@ public class finalquiz extends AppCompatActivity
 
             }
         });
+//17000 as timremain-1 and as time is calulated in onTick after each second
+        cdt=new CountDownTimer(17000,1000) {
+            @Override
+            public void onTick(long millisUntilFinished) {
+                timeremain=timeremain-1;
+                String timeremain1=String.valueOf(timeremain);
+                timer.setText(timeremain1);
+            }
+
+            @Override
+            public void onFinish() {
+                Toast.makeText(finalquiz.this, "Time up! Be quick", Toast.LENGTH_SHORT).show();
+                updatequestion();
+            }
+        }.start();
 
         qtnnumber++;
-
+        timeremain=16;
 
         if(qtnnumber>10)
         {
+            cdt.cancel();;
             finish();
             String userid = firebaseAuth.getCurrentUser().getUid();
             DatabaseReference db = fbdatabase.getReference().child("Scores").child(userid);

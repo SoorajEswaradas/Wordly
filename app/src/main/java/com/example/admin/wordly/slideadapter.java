@@ -38,11 +38,11 @@ public class slideadapter extends PagerAdapter {
             "Start Test"
     };
 
-    public String[] buttontext={
+    public String[] desc={
             "",
-            "",
-            "",
-            "hello"
+            "Wordly teaches you words of various difficulty levels",
+            "Wordly conducts tests that help in assessing yourself",
+            "Wordly needs to conduct a test for understanding you further. Start the test by pressing 'start test'"
     };
 
     public String[] swipe={
@@ -82,8 +82,11 @@ public class slideadapter extends PagerAdapter {
        ImageView slideimageview= (ImageView) view.findViewById(R.id.slideimage);
         TextView slidetitle= (TextView) view.findViewById(R.id.slidetitle);
         slidelinearlayout.setBackgroundColor(background[position]);
-       slideimageview.setImageResource(images[position]);
+        TextView slidedesc= (TextView) view.findViewById(R.id.slidedesc);
+        slidelinearlayout.setBackgroundColor(background[position]);
+        slideimageview.setImageResource(images[position]);
         slidetitle.setText(titles[position]);
+        slidedesc.setText(desc[position]);
         TextView slideswipe= (TextView) view.findViewById(R.id.slideswipe);
         slideswipe.setText(swipe[position]);
         if(position==3)

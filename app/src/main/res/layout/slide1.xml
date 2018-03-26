@@ -27,6 +27,15 @@
         android:textColor="#000000"
         android:textStyle="bold"
         android:fontFamily="serif-monospace"/>
+        <TextView
+            android:layout_gravity="center"
+            android:gravity="center"
+            android:textSize="18sp"
+            android:layout_width="match_parent"
+            android:layout_height="40pt"
+            android:id="@+id/slidedesc"
+            android:textColor="#000000"
+            android:fontFamily="serif-monospace"/>
     </LinearLayout>
     <TextView
             android:gravity="center"

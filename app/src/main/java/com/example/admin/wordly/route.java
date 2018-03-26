@@ -43,9 +43,7 @@ public class route extends AppCompatActivity {
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
                 score = dataSnapshot.getValue(String.class);
-                Intent j = new Intent(route.this, level1.class);
-                startActivity(j);
-                finish();
+
 
                 if (score != null) {
                     if (score.equals("100")) {

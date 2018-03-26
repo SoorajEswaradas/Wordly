@@ -26,7 +26,8 @@
         <activity
             android:name=".finalquiz"
             android:label="@string/title_activity_finalquiz"
-            android:theme="@style/AppTheme.NoActionBar" />
+            android:theme="@style/AppTheme.NoActionBar"
+            android:launchMode="singleTask"/>
         <activity
             android:name=".level2"
             android:label="Wordly"
@@ -69,25 +70,24 @@
         <activity
             android:name=".beginner"
             android:label="Beginner"
-            android:theme="@style/AppTheme" />
+            android:theme="@style/AppTheme"
+            android:launchMode="singleTask"/>
         <activity
             android:name=".beginnerfinal"
             android:label="Beginner"
-            android:theme="@style/AppTheme" />
+            android:theme="@style/AppTheme"
+            android:launchMode="singleTask"/>
 
-        <receiver
-            android:name=".notification"
-            android:exported="false">
-            <intent-filter>
-                <action android:name="wordly.notification" />
-            </intent-filter>
-        </receiver>
 
         <activity
             android:name=".easy"
             android:label="@string/title_activity_easy"
-            android:theme="@style/AppTheme" />
-        <activity android:name=".forgotpassword"></activity>
+            android:theme="@style/AppTheme"
+            android:launchMode="singleTask"/>
+        <activity android:name=".forgotpassword"
+            android:launchMode="singleTask">
+
+        </activity>
     </application>
 
 </manifest>
