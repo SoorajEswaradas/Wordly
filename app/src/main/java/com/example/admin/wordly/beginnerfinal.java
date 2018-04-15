@@ -1,6 +1,7 @@
 package com.example.admin.wordly;
 
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.media.AudioManager;
 import android.media.MediaPlayer;
 import android.net.Uri;
@@ -20,6 +21,7 @@ import com.firebase.client.Firebase;
 import com.firebase.client.FirebaseError;
 import com.firebase.client.ValueEventListener;
 import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.storage.FirebaseStorage;
 import com.google.firebase.storage.StorageReference;
@@ -34,14 +36,17 @@ public class beginnerfinal extends AppCompatActivity {
     public TextView example2;
     public FirebaseAuth firebaseauth;
     public FirebaseDatabase firebasedatabase;
-    public int wordnumber=0;
+    public int wordnumber;
     public String meaning1,examplea,exampleb,word1,link12;
     public StorageReference str;
     public MediaPlayer player;
     public String[] links;
+    String userid;
     public ProgressBar pb;
     public TextView prognumber;
-
+    public Firebase mref;
+    public int a=0;
+    public static final String SHARED_PREFS="sharedpreferences";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -49,6 +54,8 @@ public class beginnerfinal extends AppCompatActivity {
         setContentView(R.layout.activity_beginnerfinal);
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
+
+
 
 
         links=new String[25];
@@ -103,9 +110,25 @@ public class beginnerfinal extends AppCompatActivity {
         firebasedatabase= FirebaseDatabase.getInstance();
         str= FirebaseStorage.getInstance().getReference();
 
-       updateword();
+        userid=firebaseauth.getInstance().getCurrentUser().getUid();
+        updateword();
     }
 
+    public void savedata()
+    {
+        SharedPreferences sp=getSharedPreferences(SHARED_PREFS,MODE_PRIVATE);
+        SharedPreferences.Editor spe=sp.edit();
+        spe.putInt(userid,wordnumber);
+        spe.apply();
+    }
+
+    public void loaddata()
+    {
+        SharedPreferences sp=getSharedPreferences(SHARED_PREFS,MODE_PRIVATE);
+        wordnumber=sp.getInt(userid,-1);
+
+
+    }
 
    public  void pronounce(View view)
     {
@@ -123,12 +146,13 @@ public class beginnerfinal extends AppCompatActivity {
 
     public void previous(View view) {
 
-        if(wordnumber==1)
+        if(wordnumber==0)
         {
             Toast.makeText(this, "This is the first word", Toast.LENGTH_SHORT).show();
         }
         else {
             wordnumber = wordnumber - 2;
+            savedata();
             updateword();
         }
     }
@@ -150,12 +174,22 @@ public class beginnerfinal extends AppCompatActivity {
 
     public void updateword()
     {
+        loaddata();
+        wordnumber++;
+
+        if(wordnumber==24)
+        {
 
 
-
-                pb.setProgress((wordnumber+1));
-
-                prognumber.setText((wordnumber+1)+"/"+pb.getMax());
+            wordnumber=-1;
+            savedata();
+            finish();
+            Toast.makeText(this, "Beginner level completed. Next level unlocked", Toast.LENGTH_SHORT).show();
+            Intent i=new Intent(this,level2.class);
+            startActivity(i);
+        }
+        pb.setProgress((wordnumber+1));
+        prognumber.setText((wordnumber+1)+"/"+pb.getMax());
 
 
         try {
@@ -226,14 +260,16 @@ public class beginnerfinal extends AppCompatActivity {
 
             }
         });
-        wordnumber++;
 
-      if(wordnumber==24)
-      {
-          finish();
-          Toast.makeText(this, "Beginner level completed. Next level unlocked", Toast.LENGTH_SHORT).show();
-          Intent i=new Intent(this,level2.class);
-          startActivity(i);
-      }
+
+        userid=firebaseauth.getInstance().getCurrentUser().getUid();
+        mref=new Firebase("https://wordly-b22f0.firebaseio.com/beginnerprogress");
+        Firebase mrefchild=mref.child(userid);
+        mrefchild.setValue(wordnumber+1);
+
+        savedata();
+
+
+
     }
 }

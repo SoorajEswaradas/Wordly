@@ -25,8 +25,12 @@ import com.firebase.client.Firebase;
 import com.firebase.client.FirebaseError;
 import com.firebase.client.ValueEventListener;
 import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.storage.StorageReference;
+
+import java.util.HashMap;
+import java.util.Map;
 
 public class easy extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
@@ -43,6 +47,7 @@ public class easy extends AppCompatActivity
     public MediaPlayer player;
     public String[] links;
     public ProgressBar pb;
+    public Firebase mref;
     public TextView prognumber;
 
     @Override
@@ -186,8 +191,17 @@ public class easy extends AppCompatActivity
 
             }
         });
-        wordnumber++;
 
+        mref=new Firebase("https://wordly-b22f0.firebaseio.com");
+        Firebase mrefchild=mref.child("progress");
+        mrefchild.setValue(wordnumber);
+
+        FirebaseDatabase database = FirebaseDatabase.getInstance();
+        DatabaseReference myRef = database.getReference("message");
+
+        myRef.setValue("Hello, World!");
+
+        wordnumber++;
         if(wordnumber==24)
         {
             finish();

@@ -100,8 +100,9 @@ public class finalquiz extends AppCompatActivity
                 else
                 {
                     Toast.makeText(finalquiz.this, "Wrong answer", Toast.LENGTH_SHORT).show();
-                    updatequestion();
                     cdt.cancel();
+
+                    updatequestion();
                 }
             }
         });
@@ -120,8 +121,9 @@ public class finalquiz extends AppCompatActivity
                 else
                 {
                     Toast.makeText(finalquiz.this, "Wrong answer", Toast.LENGTH_SHORT).show();
-                    updatequestion();
                     cdt.cancel();
+
+                    updatequestion();
                 }
             }
         });
@@ -134,14 +136,16 @@ public class finalquiz extends AppCompatActivity
                     score++;
                     Toast.makeText(finalquiz.this, "Right answer", Toast.LENGTH_SHORT).show();
                     updatescore(score);
-                    updatequestion();
                     cdt.cancel();
+
+                    updatequestion();
                 }
                 else
                 {
                     Toast.makeText(finalquiz.this, "Wrong answer", Toast.LENGTH_SHORT).show();
-                    updatequestion();
                     cdt.cancel();
+
+                    updatequestion();
                 }
             }
         });
@@ -154,14 +158,16 @@ public class finalquiz extends AppCompatActivity
                     score++;
                     Toast.makeText(finalquiz.this, "Right answer", Toast.LENGTH_SHORT).show();
                     updatescore(score);
-                    updatequestion();
                     cdt.cancel();
+                    updatequestion();
+
                 }
                 else
                 {
                     Toast.makeText(finalquiz.this, "Wrong answer", Toast.LENGTH_SHORT).show();
-                    updatequestion();
                     cdt.cancel();
+
+                    updatequestion();
                 }
             }
         });
@@ -344,7 +350,7 @@ public class finalquiz extends AppCompatActivity
 
         if(qtnnumber>10)
         {
-            cdt.cancel();;
+            cdt.cancel();
             finish();
             String userid = firebaseAuth.getCurrentUser().getUid();
             DatabaseReference db = fbdatabase.getReference().child("Scores").child(userid);
@@ -392,6 +398,7 @@ public class finalquiz extends AppCompatActivity
 
     public void logout(MenuItem item)
     {
+        cdt.cancel();
         firebaseAuth.signOut();
         finish();
         Intent intent=new Intent(this,login.class);

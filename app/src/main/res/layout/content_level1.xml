@@ -10,41 +10,82 @@
     tools:showIn="@layout/app_bar_level1">
 
     <LinearLayout
-        android:layout_margin="5dp"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:orientation="vertical"
-        android:background="@drawable/book">
+        android:background="#EDEDDD">
 
 
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="0dp"
-            android:layout_weight="1"
+            android:layout_weight="2"
+            android:background="#37474f"
+            android:layout_marginBottom="1pt"
             android:orientation="horizontal"
             >
 
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical"
+                android:layout_margin="2pt"
+                android:background="@drawable/roundedtextviews">
             <TextView
                 android:textStyle="bold"
-                android:layout_width="0dp"
-                android:layout_height="30pt"
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
                 android:layout_weight="3"
-                android:gravity="center"
-                android:layout_gravity="center"
+                android:layout_gravity="center_vertical"
                 android:onClick="beginner"
+                android:gravity="center"
                 android:text="Beginner"
                 android:fontFamily="serif-monospace"
                 android:textColor="#000000"
-                android:textSize="10pt"
-                android:background="@drawable/roundedcorners"/>
-            <TextView
-                android:layout_margin="2pt"
-                android:layout_width="30pt"
-                android:layout_height="30pt"
-                android:layout_gravity="center"
-                android:background="@drawable/unlock12"/>
+                android:textSize="12pt"
+                />
 
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="0dp"
+                    android:layout_weight="4">
+
+                    <ProgressBar
+                        android:id="@+id/progressbareasy"
+                        style="@android:style/Widget.DeviceDefault.ProgressBar.Horizontal"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_gravity="center_vertical"
+                        android:layout_margin="2pt"
+                        android:minHeight="@dimen/nav_header_height"
+                        android:onClick="beginner"
+                        android:progressTint="@android:color/holo_orange_light"
+                        android:textStyle="bold"
+                        android:progress="0"
+                        android:progressDrawable="@drawable/circularprogress"
+                        />
+                    <TextView
+                        android:textColor="#33bdbe"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:gravity="center"
+                        android:id="@+id/progresspercent"
+                        android:text="60%"
+                        android:textSize="15sp"
+                        android:textStyle="bold"/>
+
+                </RelativeLayout>
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="0dp"
+                    android:layout_weight="2"
+                    android:text="0/0"
+                    android:id="@+id/progresstexteasy"
+                    android:layout_marginBottom="2pt"
+                    android:gravity="center"/>
+
+            </LinearLayout>
 
         </LinearLayout>
 
@@ -54,7 +95,9 @@
             android:layout_width="match_parent"
             android:layout_height="0dp"
             android:layout_weight="1"
+            android:layout_marginBottom="1pt"
             android:orientation="horizontal"
+            android:background="#FFFFFF"
             >
 
             <TextView
@@ -69,7 +112,7 @@
                 android:fontFamily="serif-monospace"
                 android:textColor="#000000"
                 android:textSize="10pt"
-                android:background="@drawable/roundedcorners"/>
+                />
             <TextView
                 android:layout_margin="2pt"
                 android:layout_width="30pt"
@@ -84,6 +127,8 @@
             android:layout_height="0dp"
             android:layout_weight="1"
             android:orientation="horizontal"
+            android:background="#FFFFFF"
+            android:layout_marginBottom="1pt"
             >
 
             <TextView
@@ -98,7 +143,7 @@
                 android:fontFamily="serif-monospace"
                 android:textColor="#000000"
                 android:textSize="10pt"
-                android:background="@drawable/roundedcorners"/>
+                />
             <TextView
                 android:layout_margin="2pt"
                 android:layout_width="30pt"
@@ -112,7 +157,9 @@
             android:layout_width="match_parent"
             android:layout_height="0dp"
             android:layout_weight="1"
+            android:background="#FFFFFF"
             android:orientation="horizontal"
+            android:layout_marginBottom="1pt"
             >
 
             <TextView
@@ -127,7 +174,7 @@
                 android:fontFamily="serif-monospace"
                 android:textColor="#000000"
                 android:textSize="10pt"
-                android:background="@drawable/roundedcorners"/>
+                />
             <TextView
                 android:layout_margin="2pt"
                 android:layout_width="30pt"
@@ -141,7 +188,9 @@
             android:layout_width="match_parent"
             android:layout_height="0dp"
             android:layout_weight="1"
+            android:background="#FFFFFF"
             android:orientation="horizontal"
+            android:layout_marginBottom="1pt"
             >
 
             <TextView
@@ -156,7 +205,7 @@
                 android:fontFamily="serif-monospace"
                 android:textColor="#000000"
                 android:textSize="10pt"
-                android:background="@drawable/roundedcorners"/>
+                />
             <TextView
                 android:layout_margin="2pt"
                 android:layout_width="30pt"

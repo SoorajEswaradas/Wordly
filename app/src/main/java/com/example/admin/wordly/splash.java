@@ -1,6 +1,7 @@
 package com.example.admin.wordly;
 
 import android.app.Activity;
+import android.app.ActivityManager;
 import android.app.AlarmManager;
 import android.app.PendingIntent;
 import android.content.Intent;
@@ -29,6 +30,7 @@ public class splash extends Activity {
         requestWindowFeature(Window.FEATURE_NO_TITLE);
         this.getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN,WindowManager.LayoutParams.FLAG_FULLSCREEN);
         setContentView(R.layout.activity_splash);
+
 
       /*  AlarmManager alarm=(AlarmManager)getSystemService(ALARM_SERVICE);
         Calendar calendar = Calendar.getInstance();

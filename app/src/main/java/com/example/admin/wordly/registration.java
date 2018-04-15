@@ -16,6 +16,7 @@ import android.widget.EditText;
 import android.widget.ProgressBar;
 import android.widget.Toast;
 
+import com.firebase.client.Firebase;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
@@ -119,6 +120,10 @@ public class registration extends Activity implements View.OnClickListener {
                                 db.setValue(newmap1);
 
 
+                                userid=firebaseauth.getInstance().getCurrentUser().getUid();
+                                Firebase mref=new Firebase("https://wordly-b22f0.firebaseio.com/beginnerprogress");
+                                Firebase mrefchild=mref.child(userid);
+                                mrefchild.setValue(0);
 
                                 firebaseauth.signOut();
                                 finish();

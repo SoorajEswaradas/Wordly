@@ -17,18 +17,67 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.Window;
 import android.view.WindowManager;
+import android.widget.ProgressBar;
+import android.widget.TextView;
 import android.widget.Toast;
 
+import com.firebase.client.DataSnapshot;
+import com.firebase.client.Firebase;
+import com.firebase.client.FirebaseError;
+import com.firebase.client.ValueEventListener;
 import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.database.DatabaseError;
+
+import org.w3c.dom.Text;
+
+import javax.xml.transform.Templates;
 
 public class level1 extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
 
     public FirebaseAuth firebaseauth;
+    public ProgressBar progressbareasy;
+    public TextView progresstexteasy;
+    public TextView progresspercent;
+    public String word1;
+    public int a=0;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_level1);
+
+        progresspercent=(TextView)findViewById(R.id.progresspercent);
+        progresstexteasy=(TextView)findViewById(R.id.progresstexteasy);
+        progressbareasy=(ProgressBar)findViewById(R.id.progressbareasy);
+        progressbareasy.setMax(24);
+        String userid=firebaseauth.getInstance().getCurrentUser().getUid();
+        Firebase wordref=new Firebase("https://wordly-b22f0.firebaseio.com/beginnerprogress/userid");
+        wordref=new Firebase("https://wordly-b22f0.firebaseio.com/beginnerprogress/"+userid);
+        wordref.addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(DataSnapshot dataSnapshot) {
+                word1=dataSnapshot.getValue(String.class);
+                a=Integer.parseInt(word1);
+                progressbareasy.setProgress((a));
+                progresstexteasy.setText("Progress : "+(a)+" out of "+progressbareasy.getMax()+" words completed");
+                float percent=((float)a/(float)progressbareasy.getMax())*100;
+                String percentfinal=String.valueOf(percent);
+                percentfinal=String.format("%.2f",percent);
+                progresspercent.setText(percentfinal+"%");
+
+
+            }
+
+            @Override
+            public void onCancelled(FirebaseError firebaseError) {
+
+            }
+        });
+
+
+
+
+
 
 
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
