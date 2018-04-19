@@ -361,35 +361,41 @@ public class finalquiz extends AppCompatActivity
             db.setValue(newmap);
 
 
-            if(score<=2)
+            if(score<=6)
             {
                 finish();
                 Intent i=new Intent(this,level1.class);
+
+
+                userid=firebaseAuth.getInstance().getCurrentUser().getUid();
+                Firebase mref=new Firebase("https://wordly-b22f0.firebaseio.com/levelprogress");
+                Firebase mrefchild=mref.child(userid);
+                mrefchild.setValue(1);
+
                 startActivity(i);
 
             }
-            else if(score<=4)
+            else if(score>6&&score<=8)
             {
                 finish();
                 Intent i=new Intent(this,level2.class);
-                startActivity(i);
-            }
-            else if(score<=6)
-            {
-                finish();
-                Intent i=new Intent(this,level3.class);
-                startActivity(i);
-            }
-           else if(score<=8)
-            {
-                finish();
-                Intent i=new Intent(this,level4.class);
+                userid=firebaseAuth.getInstance().getCurrentUser().getUid();
+                Firebase mref=new Firebase("https://wordly-b22f0.firebaseio.com/levelprogress");
+                Firebase mrefchild=mref.child(userid);
+                mrefchild.setValue(2);
+
+
                 startActivity(i);
             }
             else
             {
                 finish();
-                Intent i=new Intent(this,level5.class);
+                Intent i=new Intent(this,level3.class);
+                userid=firebaseAuth.getInstance().getCurrentUser().getUid();
+                Firebase mref=new Firebase("https://wordly-b22f0.firebaseio.com/levelprogress");
+                Firebase mrefchild=mref.child(userid);
+                mrefchild.setValue(3);
+
                 startActivity(i);
             }
         }

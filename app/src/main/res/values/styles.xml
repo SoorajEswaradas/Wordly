@@ -20,7 +20,7 @@
         <item name="android:background">#000000</item>
     </style>
 
-    <style name= "recent" >
+    <style name="recent">
         <item name="android:background">#334000</item>
     </style>
 

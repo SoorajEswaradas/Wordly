@@ -57,7 +57,7 @@ public class level1 extends AppCompatActivity
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
                 word1=dataSnapshot.getValue(String.class);
-                a=Integer.parseInt(word1);
+               a=Integer.parseInt(word1);
                 progressbareasy.setProgress((a));
                 progresstexteasy.setText("Progress : "+(a)+" out of "+progressbareasy.getMax()+" words completed");
                 float percent=((float)a/(float)progressbareasy.getMax())*100;

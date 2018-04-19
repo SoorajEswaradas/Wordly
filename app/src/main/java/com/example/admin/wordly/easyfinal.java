@@ -4,7 +4,6 @@ import android.content.Intent;
 import android.content.SharedPreferences;
 import android.media.AudioManager;
 import android.media.MediaPlayer;
-import android.net.Uri;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
@@ -21,22 +20,19 @@ import com.firebase.client.Firebase;
 import com.firebase.client.FirebaseError;
 import com.firebase.client.ValueEventListener;
 import com.google.firebase.auth.FirebaseAuth;
-import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.storage.FirebaseStorage;
 import com.google.firebase.storage.StorageReference;
 
-import java.io.File;
-import java.io.FileInputStream;
+public class easyfinal extends AppCompatActivity {
 
-public class beginnerfinal extends AppCompatActivity {
     public TextView word;
     public TextView meaning;
     public TextView example1;
     public TextView example2;
     public FirebaseAuth firebaseauth;
     public FirebaseDatabase firebasedatabase;
-    public int wordnumber;
+    public int wordnumber2=-1;
     public String meaning1,examplea,exampleb,word1,link12;
     public StorageReference str;
     public MediaPlayer player;
@@ -46,12 +42,12 @@ public class beginnerfinal extends AppCompatActivity {
     public TextView prognumber;
     public Firebase mref;
     public int a=0;
-    public static final String SHARED_PREFS="sharedpreferences";
+    public static final String SHARED_PREFS="sharedpreferences1";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_beginnerfinal);
+        setContentView(R.layout.activity_easyfinal);
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
@@ -116,42 +112,42 @@ public class beginnerfinal extends AppCompatActivity {
 
     public void savedata()
     {
-        SharedPreferences sp=getSharedPreferences(SHARED_PREFS,MODE_PRIVATE);
-        SharedPreferences.Editor spe=sp.edit();
-        spe.putInt(userid,wordnumber);
+        SharedPreferences sp1=getSharedPreferences(SHARED_PREFS,MODE_PRIVATE);
+        SharedPreferences.Editor spe=sp1.edit();
+        spe.putInt(userid,wordnumber2);
         spe.apply();
     }
 
     public void loaddata()
     {
         SharedPreferences sp=getSharedPreferences(SHARED_PREFS,MODE_PRIVATE);
-        wordnumber=sp.getInt(userid,-1);
+        wordnumber2=sp.getInt(userid,-1);
 
 
     }
 
-   public  void pronounce(View view)
+    public  void pronounce(View view)
     {
-      try{
-          player.start();
-      }
-      catch(Exception e)
-      {
-          Toast.makeText(this, "Error", Toast.LENGTH_SHORT).show();
-    }
-    }
-        public void next(View view) {
-          updateword();
+        try{
+            player.start();
         }
+        catch(Exception e)
+        {
+            Toast.makeText(this, "Error", Toast.LENGTH_SHORT).show();
+        }
+    }
+    public void next(View view) {
+        updateword();
+    }
 
     public void previous(View view) {
 
-        if(wordnumber==0)
+        if(wordnumber2==0)
         {
             Toast.makeText(this, "This is the first word", Toast.LENGTH_SHORT).show();
         }
         else {
-            wordnumber = wordnumber - 2;
+            wordnumber2 = wordnumber2 - 2;
             savedata();
             updateword();
         }
@@ -175,53 +171,48 @@ public class beginnerfinal extends AppCompatActivity {
     public void updateword()
     {
         loaddata();
-        wordnumber++;
+        wordnumber2++;
 
-        if(wordnumber==24)
+        if(wordnumber2==25)
         {
-            Firebase mref1=new Firebase("https://wordly-b22f0.firebaseio.com/levelprogress");
-            Firebase mrefchild1=mref1.child(userid);
-            mrefchild1.setValue(2);
 
 
-            wordnumber=-1;
+            wordnumber2=-1;
             savedata();
             finish();
             Toast.makeText(this, "Beginner level completed. Next level unlocked", Toast.LENGTH_SHORT).show();
-            Intent i=new Intent(this,level2.class);
+            Intent i=new Intent(this,level3.class);
             startActivity(i);
         }
-        pb.setProgress((wordnumber+1));
-        prognumber.setText((wordnumber+1)+"/"+pb.getMax());
+        pb.setProgress((wordnumber2+1));
+        prognumber.setText((wordnumber2+1)+"/"+pb.getMax());
 
 
-        if(wordnumber!=24) {
-            try {
-                player = new MediaPlayer();
-                player.setAudioStreamType(AudioManager.STREAM_MUSIC);
-                player.setDataSource(links[wordnumber]);
-                player.prepare();
-            } catch (Exception e) {
-                Toast.makeText(this, "Error playing audio", Toast.LENGTH_SHORT).show();
-            }
+        try {
+            player = new MediaPlayer();
+            player.setAudioStreamType(AudioManager.STREAM_MUSIC);
+            player.setDataSource(links[wordnumber2]);
+            player.prepare();
+        } catch (Exception e) {
+            Toast.makeText(this, "Error playing audio", Toast.LENGTH_SHORT).show();
         }
         Firebase wordref,meaningref,example1ref,example2ref;
-        wordref=new Firebase("https://wordly-b22f0.firebaseio.com/beginner/"+wordnumber+"/words");
+        wordref=new Firebase("https://wordly-b22f0.firebaseio.com/easy/"+wordnumber2+"/word");
         wordref.addValueEventListener(new ValueEventListener() {
-          @Override
-          public void onDataChange(DataSnapshot dataSnapshot) {
-              word1=dataSnapshot.getValue(String.class);
-              word.setText(word1);
+            @Override
+            public void onDataChange(DataSnapshot dataSnapshot) {
+                word1=dataSnapshot.getValue(String.class);
+                word.setText(word1);
 
-          }
+            }
 
-          @Override
-          public void onCancelled(FirebaseError firebaseError) {
+            @Override
+            public void onCancelled(FirebaseError firebaseError) {
 
-          }
-      });
+            }
+        });
 
-        meaningref=new Firebase("https://wordly-b22f0.firebaseio.com/beginner/"+wordnumber+"/meaning");
+        meaningref=new Firebase("https://wordly-b22f0.firebaseio.com/easy/"+wordnumber2+"/meaning");
         meaningref.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
@@ -236,7 +227,7 @@ public class beginnerfinal extends AppCompatActivity {
             }
         });
 
-        example1ref=new Firebase("https://wordly-b22f0.firebaseio.com/beginner/"+wordnumber+"/example1");
+        example1ref=new Firebase("https://wordly-b22f0.firebaseio.com/easy/"+wordnumber2+"/example1");
         example1ref.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
@@ -251,7 +242,7 @@ public class beginnerfinal extends AppCompatActivity {
             }
         });
 
-        example2ref=new Firebase("https://wordly-b22f0.firebaseio.com/beginner/"+wordnumber+"/example2");
+        example2ref=new Firebase("https://wordly-b22f0.firebaseio.com/easy/"+wordnumber2+"/example2");
         example2ref.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
@@ -268,13 +259,9 @@ public class beginnerfinal extends AppCompatActivity {
 
 
         userid=firebaseauth.getInstance().getCurrentUser().getUid();
-        mref=new Firebase("https://wordly-b22f0.firebaseio.com/beginnerprogress");
+        mref=new Firebase("https://wordly-b22f0.firebaseio.com/easyprogress");
         Firebase mrefchild=mref.child(userid);
-        mrefchild.setValue(wordnumber+1);
-
-
-
-
+        mrefchild.setValue(wordnumber2+1);
 
         savedata();
 

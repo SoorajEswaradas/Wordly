@@ -112,4 +112,5 @@
     <string name="title_activity_beginner">beginner</string>
     <string name="title_activity_beginnerfinal">beginnerfinal</string>
     <string name="title_activity_easy">easy</string>
+    <string name="title_activity_easyfinal">easyfinal</string>
 </resources>

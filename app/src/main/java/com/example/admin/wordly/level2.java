@@ -4,6 +4,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
+import android.text.TextUtils;
 import android.view.View;
 import android.support.design.widget.NavigationView;
 import android.support.v4.view.GravityCompat;
@@ -14,17 +15,66 @@ import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.Window;
+import android.widget.ProgressBar;
+import android.widget.TextView;
 import android.widget.Toast;
 
+import com.firebase.client.DataSnapshot;
+import com.firebase.client.Firebase;
+import com.firebase.client.FirebaseError;
+import com.firebase.client.ValueEventListener;
 import com.google.firebase.auth.FirebaseAuth;
 
 public class level2 extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
+
+
+    public ProgressBar progressbareasy;
+    public TextView progresstexteasy;
+    public TextView progresspercent;
+    public String word1;
+    public int a=0;
     public FirebaseAuth firebaseauth;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_level2);
+
+
+        progresspercent=(TextView)findViewById(R.id.progresspercent);
+        progresstexteasy=(TextView)findViewById(R.id.progresstexteasy);
+        progressbareasy=(ProgressBar)findViewById(R.id.progressbareasy);
+        progressbareasy.setMax(24);
+        String userid=firebaseauth.getInstance().getCurrentUser().getUid();
+        Firebase wordref=new Firebase("https://wordly-b22f0.firebaseio.com/beginnerprogress/userid");
+        wordref=new Firebase("https://wordly-b22f0.firebaseio.com/easyprogress/"+userid);
+        wordref.addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(DataSnapshot dataSnapshot) {
+                word1=dataSnapshot.getValue(String.class);
+                if (!TextUtils.isEmpty(word1) && TextUtils.isDigitsOnly(word1)) {
+                    a = Integer.parseInt(word1);
+                } else {
+                    a = 0;
+                }
+                progressbareasy.setProgress((a));
+                progresstexteasy.setText("Progress : "+(a)+" out of "+progressbareasy.getMax()+" words completed");
+                float percent=((float)a/(float)progressbareasy.getMax())*100;
+                String percentfinal=String.valueOf(percent);
+                percentfinal=String.format("%.2f",percent);
+                progresspercent.setText(percentfinal+"%");
+
+
+            }
+
+            @Override
+            public void onCancelled(FirebaseError firebaseError) {
+
+            }
+        });
+
+
+
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
@@ -109,7 +159,7 @@ public class level2 extends AppCompatActivity
     }
     public void easy(View view)
     {
-        Intent i=new Intent(this,easy.class);
+        Intent i=new Intent(this,easyfinal.class);
         startActivity(i);
     }
 
