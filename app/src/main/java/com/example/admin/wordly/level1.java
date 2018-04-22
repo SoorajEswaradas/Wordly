@@ -1,8 +1,10 @@
 package com.example.admin.wordly;
 
+import android.app.ProgressDialog;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
+import android.os.Handler;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
 import android.support.v4.content.ContextCompat;
@@ -40,11 +42,15 @@ public class level1 extends AppCompatActivity
     public TextView progresstexteasy;
     public TextView progresspercent;
     public String word1;
+    private ProgressDialog progress;
     public int a=0;
+    public int timeout=3000;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_level1);
+
+        progress=new ProgressDialog(this);
 
         progresspercent=(TextView)findViewById(R.id.progresspercent);
         progresstexteasy=(TextView)findViewById(R.id.progresstexteasy);
@@ -103,6 +109,13 @@ public class level1 extends AppCompatActivity
 
         NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
         navigationView.setNavigationItemSelectedListener(this);
+    }
+
+   @Override
+    protected void onResume(){
+        super.onResume();
+        progress.dismiss();
+
     }
 
   /*  public void showquiz()
@@ -175,8 +188,19 @@ public class level1 extends AppCompatActivity
     }
     public void beginner(View view)
     {
-       Intent i=new Intent(this,beginnerfinal.class);
-       startActivity(i);
+        progress.setMessage("Loading...");
+        progress.show();
+
+
+        Intent i=new Intent(level1.this,beginnerfinal.class);
+
+
+
+        startActivity(i);
+
+
+
+
 
     }
     public void easy(View view)
@@ -184,18 +208,19 @@ public class level1 extends AppCompatActivity
         Toast.makeText(this, "Complete previous level to unlock this level", Toast.LENGTH_SHORT).show();
     }
 
-    public void intermediate(View view)
-    {
-        Toast.makeText(this, "Complete previous level to unlock this level", Toast.LENGTH_SHORT).show();
-    }
-
-    public void hard(View view)
-    {
-        Toast.makeText(this, "Complete previous level to unlock this level", Toast.LENGTH_SHORT).show();
-    }
     public void expert(View view)
     {
         Toast.makeText(this, "Complete previous level to unlock this level", Toast.LENGTH_SHORT).show();
+    }
+    public void idioms(View view)
+    {
+        Intent i=new Intent(level1.this,idiomsfinal.class);
+        startActivity(i);
+    }
+    public void extrawords(View view)
+    {
+        Intent i=new Intent(level1.this,extrawordsfinal.class);
+        startActivity(i);
     }
 
     public void logout(MenuItem item)

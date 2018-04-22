@@ -10,6 +10,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.Window;
 import android.view.WindowManager;
+import android.widget.Toast;
 
 
 import java.util.Arrays;
@@ -32,15 +33,10 @@ public class splash extends Activity {
         setContentView(R.layout.activity_splash);
 
 
-      /*  AlarmManager alarm=(AlarmManager)getSystemService(ALARM_SERVICE);
-        Calendar calendar = Calendar.getInstance();
-        calendar.add(Calendar.SECOND,5);
 
-       Intent intent=new Intent("wordly.notification");
-       PendingIntent broadcast= PendingIntent.getBroadcast(this,100,intent,PendingIntent.FLAG_UPDATE_CURRENT);
-       alarm.setExact(AlarmManager.RTC_WAKEUP,calendar.getTimeInMillis(),broadcast);
 
-*/
+
+
         new Handler().postDelayed(new Runnable(){
             @Override
             public void run() {

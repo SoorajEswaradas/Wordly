@@ -136,20 +136,27 @@
     android:layout_height="0dp"
     android:layout_weight="1"
     android:orientation="horizontal">
-        <Button
-            android:layout_width="0dp"
-            android:layout_weight="1"
-            android:layout_height="wrap_content"
-            android:text="Previous word"
-            android:background="@drawable/roundedcorners"
-            android:layout_margin="5pt"
-            android:onClick="previous"/>
-       <Button
+    <Button
         android:layout_width="0dp"
-           android:layout_weight="1"
+        android:layout_weight="0.5"
         android:layout_height="wrap_content"
-        android:text="Next word"
+        android:background="@drawable/previous"
+        android:layout_margin="5pt"
+        android:onClick="previous"/>
+    <Button
+        android:layout_width="0dp"
+        android:layout_weight="1"
+        android:layout_height="wrap_content"
+        android:text="Bookmark"
         android:background="@drawable/roundedcorners"
+        android:layout_margin="5pt"
+        android:id="@+id/bookmarkbutton"
+        android:onClick="bookmark"/>
+    <Button
+        android:layout_width="0dp"
+        android:layout_weight="0.5"
+        android:layout_height="wrap_content"
+        android:background="@drawable/next"
         android:layout_margin="5pt"
         android:onClick="next"/>
 </LinearLayout>

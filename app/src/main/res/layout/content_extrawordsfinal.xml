@@ -5,14 +5,14 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     app:layout_behavior="@string/appbar_scrolling_view_behavior"
-    tools:context="com.example.admin.wordly.easyfinal"
-    tools:showIn="@layout/activity_easyfinal"
+    tools:context="com.example.admin.wordly.extrawordsfinal"
+    tools:showIn="@layout/activity_extrawordsfinal"
     android:orientation="vertical">
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="0dp"
-        android:layout_weight="4"
+        android:layout_weight="3"
         android:layout_margin="5pt"
         android:background="@drawable/roundedcorners"
         android:orientation="vertical"
@@ -21,25 +21,9 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="0dp"
-            android:layout_weight="0.6"
+            android:layout_weight="0.5"
             android:orientation="horizontal">
-            <TextView
-                android:layout_width="0dp"
-                android:layout_height="match_parent"
-                android:layout_weight="3"
-                android:textSize="30sp"
-                android:text=""
-                android:id="@+id/word"
-                android:gravity="center"
-                android:textStyle="bold"/>
 
-            <ImageView
-                android:layout_width="0dp"
-                android:layout_weight="1"
-                android:layout_height="20pt"
-                android:src="@drawable/pronounce"
-                android:layout_gravity="center"
-                android:onClick="pronounce"/>
 
             <ImageView
                 android:layout_width="0dp"
@@ -47,11 +31,40 @@
                 android:layout_height="20pt"
                 android:src="@drawable/share"
                 android:layout_gravity="center"
-                android:onClick="share"/>
+                android:onClick="share"
+                android:layout_marginBottom="1pt"/>
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_height="0dp"
+            android:layout_weight="0.5"
+            android:layout_width="match_parent"
+            android:orientation="horizontal"
+            android:layout_marginBottom="8pt">
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:textSize="20sp"
+                android:text="     Word :"
+                android:textStyle="bold"
+                android:gravity="center"/>
+            <TextView
+                android:layout_margin="2pt"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:textSize="16sp"
+                android:text="."
+                android:id="@+id/extraword"
+                android:gravity="center_vertical"
+                />
+
         </LinearLayout>
         <LinearLayout
             android:layout_height="0dp"
-            android:layout_weight="1"
+            android:layout_weight="0.75"
             android:layout_width="match_parent"
             android:orientation="horizontal">
 
@@ -68,94 +81,35 @@
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
                 android:layout_weight="1"
-                android:textSize="15sp"
-                android:text="."
+                android:textSize="16sp"
                 android:id="@+id/meaning"
-                android:gravity="center_vertical"
-                />
-
-        </LinearLayout>
-        <LinearLayout
-            android:layout_height="0dp"
-            android:layout_weight="1"
-            android:layout_width="match_parent"
-            android:orientation="horizontal">
-
-            <TextView
-                android:layout_width="0dp"
-                android:layout_height="match_parent"
-                android:layout_weight="1"
-                android:textSize="20sp"
-                android:text="Example 1 :"
-                android:textStyle="bold"
-                android:gravity="center"/>
-            <TextView
-                android:layout_margin="2pt"
-                android:layout_width="0dp"
-                android:layout_height="match_parent"
-                android:layout_weight="1"
-                android:textSize="15sp"
-                android:id="@+id/example1"
                 android:text="."
                 android:gravity="center_vertical"
                 />
 
         </LinearLayout>
-        <LinearLayout
-            android:layout_height="0dp"
-            android:layout_weight="1"
-            android:layout_width="match_parent"
-            android:orientation="horizontal">
 
-            <TextView
-                android:layout_width="0dp"
-                android:layout_height="match_parent"
-                android:layout_weight="1"
-                android:textSize="20sp"
-                android:text="Example 2 :"
-                android:textStyle="bold"
-                android:gravity="center"/>
-
-            <TextView
-                android:layout_margin="2pt"
-                android:layout_width="0dp"
-                android:layout_height="match_parent"
-                android:layout_weight="1"
-                android:id="@+id/example2"
-                android:textSize="15sp"
-                android:text="."
-                android:gravity="center_vertical"
-                />
-
-        </LinearLayout>
     </LinearLayout>
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="0dp"
-        android:layout_weight="1"
+        android:layout_weight="01"
         android:orientation="horizontal">
         <Button
             android:layout_width="0dp"
-            android:layout_weight="0.5"
+            android:layout_weight="1"
             android:layout_height="wrap_content"
-            android:background="@drawable/previous"
-            android:layout_margin="5pt"
+            android:text="Previous"
+            android:background="@drawable/roundedcorners"
+            android:layout_margin="2pt"
             android:onClick="previous"/>
         <Button
             android:layout_width="0dp"
             android:layout_weight="1"
             android:layout_height="wrap_content"
-            android:text="Bookmark"
+            android:text="Next"
             android:background="@drawable/roundedcorners"
-            android:layout_margin="5pt"
-            android:onClick="bookmark"
-            android:id="@+id/bookmarkbutton"/>
-        <Button
-            android:layout_width="0dp"
-            android:layout_weight="0.5"
-            android:layout_height="wrap_content"
-            android:background="@drawable/next"
-            android:layout_margin="5pt"
+            android:layout_margin="2pt"
             android:onClick="next"/>
     </LinearLayout>
     <LinearLayout
@@ -167,16 +121,20 @@
         <ProgressBar
             android:layout_width="match_parent"
             android:layout_height="0pt"
-            android:layout_weight="1"
-            style="@android:style/Widget.Holo.Light.ProgressBar.Horizontal"
+            android:layout_weight="3.5"
+            style="@android:style/Widget.DeviceDefault.ProgressBar.Horizontal"
             android:id="@+id/probar"
             android:padding="2pt"
             android:progressBackgroundTint="#B2DFDB"
+            android:progress="0"
+            android:progressDrawable="@drawable/circularprogress"
+            android:progressTint="@android:color/holo_orange_light"
+
             />
         <TextView
             android:layout_width="match_parent"
             android:layout_height="0pt"
-            android:layout_weight="3"
+            android:layout_weight="1"
             android:id="@+id/prognumber"
             android:textSize="20sp"
             android:textColor="#12DFDB"
@@ -187,7 +145,4 @@
     </LinearLayout>
 
 
-
 </LinearLayout>
-
-

@@ -1,9 +1,15 @@
 package com.example.admin.wordly;
 
+import android.app.AlarmManager;
+import android.app.NotificationManager;
+import android.app.PendingIntent;
+import android.app.ProgressDialog;
+import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
+import android.support.v4.app.NotificationCompat;
 import android.text.TextUtils;
 import android.view.View;
 import android.support.design.widget.NavigationView;
@@ -25,6 +31,9 @@ import com.firebase.client.FirebaseError;
 import com.firebase.client.ValueEventListener;
 import com.google.firebase.auth.FirebaseAuth;
 
+import java.util.Calendar;
+import java.util.Map;
+
 public class level2 extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
 
@@ -35,18 +44,34 @@ public class level2 extends AppCompatActivity
     public String word1;
     public int a=0;
     public FirebaseAuth firebaseauth;
+    public ProgressDialog progress;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_level2);
 
 
+       /* Calendar calendar = Calendar.getInstance();
+        calendar.set(Calendar.HOUR_OF_DAY,00);
+        calendar.set(Calendar.MINUTE,37);
+        calendar.set(Calendar.SECOND,00);
+
+        Intent intent=new Intent(getApplicationContext(),notification.class);
+        intent.setAction("MY_NOTIFICATION_MESSAGE");
+        PendingIntent pendingIntent= PendingIntent.getBroadcast(this,100,intent,PendingIntent.FLAG_UPDATE_CURRENT);
+        AlarmManager alarmManager=(AlarmManager)getSystemService(ALARM_SERVICE);
+        alarmManager.setRepeating(AlarmManager.RTC_WAKEUP, calendar.getTimeInMillis(), AlarmManager.INTERVAL_DAY, pendingIntent);
+
+
+        Toast.makeText(this, "Error in splash", Toast.LENGTH_SHORT).show();
+*/
+        progress=new ProgressDialog(this);
         progresspercent=(TextView)findViewById(R.id.progresspercent);
         progresstexteasy=(TextView)findViewById(R.id.progresstexteasy);
         progressbareasy=(ProgressBar)findViewById(R.id.progressbareasy);
         progressbareasy.setMax(24);
         String userid=firebaseauth.getInstance().getCurrentUser().getUid();
-        Firebase wordref=new Firebase("https://wordly-b22f0.firebaseio.com/beginnerprogress/userid");
+        Firebase wordref;
         wordref=new Firebase("https://wordly-b22f0.firebaseio.com/easyprogress/"+userid);
         wordref.addValueEventListener(new ValueEventListener() {
             @Override
@@ -93,6 +118,13 @@ public class level2 extends AppCompatActivity
 
         NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
         navigationView.setNavigationItemSelectedListener(this);
+    }
+
+    @Override
+    protected void onResume(){
+        super.onResume();
+        progress.dismiss();
+
     }
 
     @Override
@@ -151,32 +183,44 @@ public class level2 extends AppCompatActivity
         drawer.closeDrawer(GravityCompat.START);
         return true;
     }
+
+
+
     public void beginner(View view)
     {
+        progress.setMessage("Loading...");
+        progress.show();
+
         Intent i=new Intent(this,beginnerfinal.class);
         startActivity(i);
 
     }
     public void easy(View view)
     {
+        progress.setMessage("Loading...");
+        progress.show();
+
         Intent i=new Intent(this,easyfinal.class);
         startActivity(i);
     }
 
-    public void intermediate(View view)
-    {
-        Toast.makeText(this, "Complete previous level to unlock this level", Toast.LENGTH_SHORT).show();
-    }
 
-    public void hard(View view)
-    {
-        Toast.makeText(this, "Complete previous level to unlock this level", Toast.LENGTH_SHORT).show();
-    }
+
     public void expert(View view)
     {
         Toast.makeText(this, "Complete previous level to unlock this level", Toast.LENGTH_SHORT).show();
     }
+    public void idioms(View view)
+    {
+        Intent i=new Intent(level2.this,idiomsfinal.class);
+        startActivity(i);
+    }
 
+    public void extrawords(View view)
+    {
+        Intent i=new Intent(level2.this,extrawordsfinal.class);
+        startActivity(i);
+    }
     public void logout(MenuItem item)
     {
         Toast.makeText(this, "Signing Out", Toast.LENGTH_SHORT).show();

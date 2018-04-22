@@ -25,7 +25,8 @@ import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.storage.FirebaseStorage;
 import com.google.firebase.storage.StorageReference;
 
-public class easyfinal extends AppCompatActivity {
+public class expertfinal extends AppCompatActivity {
+
 
     public TextView word;
     public TextView meaning;
@@ -40,23 +41,21 @@ public class easyfinal extends AppCompatActivity {
     public StorageReference str;
     public MediaPlayer player;
     public String[] links;
-    String userid,currentlevel;
+    String userid;
     public ProgressBar pb;
     public TextView prognumber;
     public Firebase mref;
     public int a=0;
-    public static final String SHARED_PREFS="sharedpreferences1";
-    public static String SHARED_PREFSbookmark="sharedpreferencesbookmark2";
+    public static final String SHARED_PREFS="sharedpreferences2";
+    public static String SHARED_PREFSbookmark="sharedpreferencesbookmark3";
     Firebase wordref,meaningref,example1ref,example2ref,bookmarkref,bookmarkref1;
-
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_easyfinal);
+        setContentView(R.layout.activity_expertfinal);
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
-
         bookmarkbutton=(Button)findViewById(R.id.bookmarkbutton);
 
 
@@ -108,8 +107,8 @@ public class easyfinal extends AppCompatActivity {
         prognumber=(TextView)findViewById(R.id.prognumber);
 
         pb=(ProgressBar)findViewById(R.id.probar);
-        pb.setMax(25);
-        firebaseauth=FirebaseAuth.getInstance();
+        pb.setMax(26);
+        firebaseauth= FirebaseAuth.getInstance();
         firebasedatabase= FirebaseDatabase.getInstance();
         str= FirebaseStorage.getInstance().getReference();
 
@@ -152,21 +151,21 @@ public class easyfinal extends AppCompatActivity {
 
         loaddatabookmark();
 
-        Toast.makeText(easyfinal.this, "Added to bookmarks", Toast.LENGTH_SHORT).show();
+        Toast.makeText(expertfinal.this, "Added to bookmarks", Toast.LENGTH_SHORT).show();
 
-        Firebase mref1 = new Firebase("https://wordly-b22f0.firebaseio.com/easybookmark/"+userid+"/"+bookmarknumber);
+        Firebase mref1 = new Firebase("https://wordly-b22f0.firebaseio.com/expertbookmark/"+userid+"/"+bookmarknumber);
         Firebase mrefchild1 = mref1.child("word");
         mrefchild1.setValue(word1);
 
-        mref1 = new Firebase("https://wordly-b22f0.firebaseio.com/easybookmark/" + userid + "/" + bookmarknumber);
+        mref1 = new Firebase("https://wordly-b22f0.firebaseio.com/expertbookmark/" + userid + "/" + bookmarknumber);
         mrefchild1 = mref1.child("meaning");
         mrefchild1.setValue(meaning1);
 
-        mref1 = new Firebase("https://wordly-b22f0.firebaseio.com/easybookmark/" + userid + "/" + bookmarknumber);
+        mref1 = new Firebase("https://wordly-b22f0.firebaseio.com/expertbookmark/" + userid + "/" + bookmarknumber);
         mrefchild1 = mref1.child("example1");
         mrefchild1.setValue(examplea);
 
-        mref1 = new Firebase("https://wordly-b22f0.firebaseio.com/easybookmark/" + userid + "/" + bookmarknumber);
+        mref1 = new Firebase("https://wordly-b22f0.firebaseio.com/expertbookmark/" + userid + "/" + bookmarknumber);
         mrefchild1 = mref1.child("example2");
         mrefchild1.setValue(exampleb);
 
@@ -224,43 +223,16 @@ public class easyfinal extends AppCompatActivity {
         loaddata();
         wordnumber2++;
 
-        if(wordnumber2==25)
+        if(wordnumber2==26)
         {
-            Firebase mref1=new Firebase("https://wordly-b22f0.firebaseio.com/levelprogress");
-            Firebase mrefchild1=mref1.child(userid);
-            mrefchild1.setValue(3);
 
 
             wordnumber2=-1;
             savedata();
             finish();
-
-            Firebase endref=new Firebase("https://wordly-b22f0.firebaseio.com/levelprogerss/userid");
-            endref.addValueEventListener(new ValueEventListener() {
-                @Override
-                public void onDataChange(DataSnapshot dataSnapshot) {
-                    currentlevel=dataSnapshot.getValue(String.class);
-                }
-
-                @Override
-                public void onCancelled(FirebaseError firebaseError) {
-
-                }
-            });
-
-
-            if(currentlevel!=null&&currentlevel.equalsIgnoreCase("1"))
-            {
-                Toast.makeText(this, "Beginner level completed. Next level unlocked", Toast.LENGTH_SHORT).show();
-                Intent i=new Intent(this,level2.class);
-                startActivity(i);
-            }
-            if(currentlevel!=null&&currentlevel.equalsIgnoreCase("2"))
-            {
-                Intent i=new Intent(this,level2.class);
-                startActivity(i);
-            }
-
+            Toast.makeText(this, "Beginner level completed. Next level unlocked", Toast.LENGTH_SHORT).show();
+            Intent i=new Intent(this,level3.class);
+            startActivity(i);
         }
         pb.setProgress((wordnumber2+1));
         prognumber.setText((wordnumber2+1)+"/"+pb.getMax());
@@ -272,10 +244,10 @@ public class easyfinal extends AppCompatActivity {
             player.setDataSource(links[wordnumber2]);
             player.prepare();
         } catch (Exception e) {
-            Toast.makeText(this, "New level unlocked", Toast.LENGTH_SHORT).show();
+            Toast.makeText(this, "Congrats you completed all the levels", Toast.LENGTH_SHORT).show();
         }
 
-        wordref=new Firebase("https://wordly-b22f0.firebaseio.com/easy/"+wordnumber2+"/word");
+        wordref=new Firebase("https://wordly-b22f0.firebaseio.com/expert/"+wordnumber2+"/word");
         wordref.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
@@ -290,7 +262,7 @@ public class easyfinal extends AppCompatActivity {
             }
         });
 
-        meaningref=new Firebase("https://wordly-b22f0.firebaseio.com/easy/"+wordnumber2+"/meaning");
+        meaningref=new Firebase("https://wordly-b22f0.firebaseio.com/expert/"+wordnumber2+"/meaning");
         meaningref.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
@@ -305,7 +277,7 @@ public class easyfinal extends AppCompatActivity {
             }
         });
 
-        example1ref=new Firebase("https://wordly-b22f0.firebaseio.com/easy/"+wordnumber2+"/example1");
+        example1ref=new Firebase("https://wordly-b22f0.firebaseio.com/expert/"+wordnumber2+"/example1");
         example1ref.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
@@ -320,7 +292,7 @@ public class easyfinal extends AppCompatActivity {
             }
         });
 
-        example2ref=new Firebase("https://wordly-b22f0.firebaseio.com/easy/"+wordnumber2+"/example2");
+        example2ref=new Firebase("https://wordly-b22f0.firebaseio.com/expert/"+wordnumber2+"/example2");
         example2ref.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
@@ -354,7 +326,7 @@ public class easyfinal extends AppCompatActivity {
         });
 */
         userid=firebaseauth.getInstance().getCurrentUser().getUid();
-        mref=new Firebase("https://wordly-b22f0.firebaseio.com/easyprogress");
+        mref=new Firebase("https://wordly-b22f0.firebaseio.com/expertprogress");
         Firebase mrefchild=mref.child(userid);
         mrefchild.setValue(wordnumber2+1);
 

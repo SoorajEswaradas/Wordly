@@ -1,9 +1,11 @@
 package com.example.admin.wordly;
 
+import android.app.ProgressDialog;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
+import android.text.TextUtils;
 import android.view.View;
 import android.support.design.widget.NavigationView;
 import android.support.v4.view.GravityCompat;
@@ -14,13 +16,25 @@ import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.Window;
+import android.widget.ProgressBar;
+import android.widget.TextView;
 import android.widget.Toast;
 
+import com.firebase.client.DataSnapshot;
+import com.firebase.client.Firebase;
+import com.firebase.client.FirebaseError;
+import com.firebase.client.ValueEventListener;
 import com.google.firebase.auth.FirebaseAuth;
 
 public class level3 extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
      public FirebaseAuth firebaseauth;
+    public ProgressBar progressbareasy;
+    public TextView progresstexteasy;
+    public TextView progresspercent;
+    public String word1;
+    public int a=0;
+    public ProgressDialog progress;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -41,6 +55,40 @@ public class level3 extends AppCompatActivity
 
         NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
         navigationView.setNavigationItemSelectedListener(this);
+
+
+        progress=new ProgressDialog(this);
+        progresspercent=(TextView)findViewById(R.id.progresspercent);
+        progresstexteasy=(TextView)findViewById(R.id.progresstexteasy);
+        progressbareasy=(ProgressBar)findViewById(R.id.progressbareasy);
+        progressbareasy.setMax(24);
+        String userid=firebaseauth.getInstance().getCurrentUser().getUid();
+        Firebase wordref;
+        wordref=new Firebase("https://wordly-b22f0.firebaseio.com/expertprogress/"+userid);
+        wordref.addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(DataSnapshot dataSnapshot) {
+                word1=dataSnapshot.getValue(String.class);
+                if (!TextUtils.isEmpty(word1) && TextUtils.isDigitsOnly(word1)) {
+                    a = Integer.parseInt(word1);
+                } else {
+                    a = 0;
+                }
+                progressbareasy.setProgress((a));
+                progresstexteasy.setText("Progress : "+(a)+" out of "+progressbareasy.getMax()+" words completed");
+                float percent=((float)a/(float)progressbareasy.getMax())*100;
+                String percentfinal=String.valueOf(percent);
+                percentfinal=String.format("%.2f",percent);
+                progresspercent.setText(percentfinal+"%");
+
+
+            }
+
+            @Override
+            public void onCancelled(FirebaseError firebaseError) {
+
+            }
+        });
     }
 
     @Override
@@ -102,30 +150,34 @@ public class level3 extends AppCompatActivity
 
     public void beginner(View view)
     {
-        Intent i=new Intent(this,level1.class);
+        Intent i=new Intent(this,beginnerfinal.class);
         startActivity(i);
 
     }
     public void easy(View view)
     {
-        Intent i=new Intent(this,level1.class);
+        Intent i=new Intent(this,easyfinal.class);
         startActivity(i);
     }
 
-    public void intermediate(View view)
-    {
-        Intent i=new Intent(this,level3.class);
-        startActivity(i);
-    }
 
-    public void hard(View view)
-    {
-        Toast.makeText(this, "Complete previous level to unlock this level", Toast.LENGTH_SHORT).show();
-    }
     public void expert(View view)
     {
-        Toast.makeText(this, "Complete previous level to unlock this level", Toast.LENGTH_SHORT).show();
+        Intent i=new Intent(this,expertfinal.class);
+        startActivity(i);
     }
+    public void idioms(View view)
+    {
+        Intent i=new Intent(level3.this,idiomsfinal.class);
+        startActivity(i);
+    }
+    public void extrawords(View view)
+    {
+        Intent i=new Intent(level3.this,extrawordsfinal.class);
+        startActivity(i);
+    }
+
+
 
     public void logout(MenuItem item)
     {

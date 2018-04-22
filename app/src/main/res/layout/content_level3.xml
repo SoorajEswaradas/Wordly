@@ -6,22 +6,25 @@
     android:layout_height="match_parent"
     app:layout_behavior="@string/appbar_scrolling_view_behavior"
     tools:context="com.example.admin.wordly.level3"
-    tools:showIn="@layout/app_bar_level3">
+    tools:showIn="@layout/app_bar_level3"
+    android:background="#37474f">
 
-    <LinearLayout
-        android:layout_margin="5dp"
+<LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:orientation="vertical"
-        android:background="@drawable/book">
-
+        android:background="#37474f">
 
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="0dp"
             android:layout_weight="1"
+            android:layout_marginBottom="1pt"
             android:orientation="horizontal"
+            android:background="@drawable/roundedtextviews"
+            android:layout_margin="2pt"
+
             >
 
             <TextView
@@ -36,13 +39,13 @@
                 android:fontFamily="serif-monospace"
                 android:textColor="#000000"
                 android:textSize="10pt"
-                android:background="@drawable/roundedcorners"/>
+                />
             <TextView
                 android:layout_margin="2pt"
                 android:layout_width="30pt"
                 android:layout_height="30pt"
                 android:layout_gravity="center"
-                android:background="@drawable/unlock12"/>
+                android:background="@drawable/complete"/>
 
 
         </LinearLayout>
@@ -53,7 +56,11 @@
             android:layout_width="match_parent"
             android:layout_height="0dp"
             android:layout_weight="1"
+            android:layout_marginBottom="1pt"
             android:orientation="horizontal"
+            android:background="@drawable/roundedtextviews"
+            android:layout_margin="2pt"
+
             >
 
             <TextView
@@ -68,21 +75,142 @@
                 android:fontFamily="serif-monospace"
                 android:textColor="#000000"
                 android:textSize="10pt"
-                android:background="@drawable/roundedcorners"/>
+                />
             <TextView
                 android:layout_margin="2pt"
                 android:layout_width="30pt"
                 android:layout_height="30pt"
                 android:layout_gravity="center"
-                android:background="@drawable/unlock12"/>
+                android:background="@drawable/complete"/>
+
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_margin="2pt"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="2"
+            android:background="#37474f"
+
+            android:orientation="horizontal"
+            >
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical"
+                android:layout_margin="1pt"
+                android:background="@drawable/roundedtextviews">
+                <TextView
+                    android:textStyle="bold"
+                    android:layout_width="match_parent"
+                    android:layout_height="0dp"
+                    android:layout_weight="3"
+                    android:layout_gravity="center_vertical"
+                    android:onClick="expert"
+                    android:gravity="center"
+                    android:text="Expert"
+                    android:fontFamily="serif-monospace"
+                    android:textColor="#000000"
+                    android:textSize="12pt"
+                    />
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="0dp"
+                    android:layout_weight="4">
+
+                    <ProgressBar
+                        android:id="@+id/progressbareasy"
+                        style="@android:style/Widget.DeviceDefault.ProgressBar.Horizontal"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_gravity="center_vertical"
+                        android:layout_margin="2pt"
+                        android:minHeight="@dimen/nav_header_height"
+                        android:onClick="expert"
+                        android:progressTint="@android:color/holo_orange_light"
+                        android:textStyle="bold"
+                        android:progress="0"
+                        android:progressDrawable="@drawable/circularprogress"
+                        />
+                    <TextView
+                        android:textColor="#33bdbe"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:gravity="center"
+                        android:id="@+id/progresspercent"
+                        android:text="60%"
+                        android:textSize="15sp"
+                        android:textStyle="bold"/>
+
+                </RelativeLayout>
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="0dp"
+                    android:layout_weight="2"
+                    android:text="0/0"
+                    android:onClick="expert"
+                    android:id="@+id/progresstexteasy"
+                    android:layout_marginBottom="2pt"
+                    android:gravity="center"/>
+
+            </LinearLayout>
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="0.50"
+            android:orientation="horizontal"
+
+            >
+
+            <TextView
+                android:textStyle="bold"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="3"
+                android:gravity="center"
+                android:layout_gravity="center"
+                android:onClick="idioms"
+                android:text="Idioms"
+                android:background="#34565F"
+                android:fontFamily="serif-monospace"
+                android:textColor="#FFFFFF"
+                android:textSize="10pt"
+
+                android:layout_marginRight="0.5pt"
+                />
+
+            <TextView
+                android:textStyle="bold"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="3"
+                android:gravity="center"
+                android:layout_gravity="center"
+                android:onClick="extrawords"
+                android:text="Common Words"
+                android:background="#34565F"
+                android:fontFamily="serif-monospace"
+                android:textColor="#FFFFFF"
+                android:textSize="10pt"
+                android:layout_marginLeft="0.5pt"
+
+                />
 
 
         </LinearLayout>
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="0dp"
-            android:layout_weight="1"
+            android:layout_weight="0.6"
+            android:background="#34565f"
             android:orientation="horizontal"
+
             >
 
             <TextView
@@ -91,80 +219,22 @@
                 android:layout_height="30pt"
                 android:layout_weight="3"
                 android:gravity="center"
+                android:text="Bookmarks"
                 android:layout_gravity="center"
-                android:onClick="intermediate"
-                android:text="Intermediate"
+                android:onClick="idioms"
                 android:fontFamily="serif-monospace"
                 android:textColor="#000000"
+                android:background="@drawable/roundedtextviews"
                 android:textSize="10pt"
-                android:background="@drawable/roundedcorners"/>
-            <TextView
-                android:layout_margin="2pt"
-                android:layout_width="30pt"
-                android:layout_height="30pt"
-                android:layout_gravity="center"
-                android:background="@drawable/unlock12"/>
+                android:layout_margin="1pt"
+
+                />
 
 
         </LinearLayout>
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="0dp"
-            android:layout_weight="1"
-            android:orientation="horizontal"
-            >
-
-            <TextView
-                android:textStyle="bold"
-                android:layout_width="0dp"
-                android:layout_height="30pt"
-                android:layout_weight="3"
-                android:gravity="center"
-                android:layout_gravity="center"
-                android:onClick="hard"
-                android:text="Hard"
-                android:fontFamily="serif-monospace"
-                android:textColor="#000000"
-                android:textSize="10pt"
-                android:background="@drawable/roundedcorners"/>
-            <TextView
-                android:layout_margin="2pt"
-                android:layout_width="30pt"
-                android:layout_height="30pt"
-                android:layout_gravity="center"
-                android:background="@drawable/lock12"/>
 
 
-        </LinearLayout>
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="0dp"
-            android:layout_weight="1"
-            android:orientation="horizontal"
-            >
 
-            <TextView
-                android:textStyle="bold"
-                android:layout_width="0dp"
-                android:layout_height="30pt"
-                android:layout_weight="3"
-                android:gravity="center"
-                android:layout_gravity="center"
-                android:onClick="expert"
-                android:text="Expert"
-                android:fontFamily="serif-monospace"
-                android:textColor="#000000"
-                android:textSize="10pt"
-                android:background="@drawable/roundedcorners"/>
-            <TextView
-                android:layout_margin="2pt"
-                android:layout_width="30pt"
-                android:layout_height="30pt"
-                android:layout_gravity="center"
-                android:background="@drawable/lock12"/>
-
-
-        </LinearLayout>
 
     </LinearLayout>
 </LinearLayout>

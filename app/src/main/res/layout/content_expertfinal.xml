@@ -5,8 +5,8 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     app:layout_behavior="@string/appbar_scrolling_view_behavior"
-    tools:context="com.example.admin.wordly.easyfinal"
-    tools:showIn="@layout/activity_easyfinal"
+    tools:context="com.example.admin.wordly.expertfinal"
+    tools:showIn="@layout/activity_expertfinal"
     android:orientation="vertical">
 
     <LinearLayout
@@ -189,5 +189,3 @@
 
 
 </LinearLayout>
-
-

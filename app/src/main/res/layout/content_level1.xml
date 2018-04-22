@@ -138,68 +138,6 @@
                 android:layout_weight="3"
                 android:gravity="center"
                 android:layout_gravity="center"
-                android:onClick="intermediate"
-                android:text="Intermediate"
-                android:fontFamily="serif-monospace"
-                android:textColor="#000000"
-                android:textSize="10pt"
-                />
-            <TextView
-                android:layout_margin="2pt"
-                android:layout_width="30pt"
-                android:layout_height="30pt"
-                android:layout_gravity="center"
-                android:background="@drawable/lock12"/>
-
-
-        </LinearLayout>
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="0dp"
-            android:layout_weight="1"
-            android:background="#FFFFFF"
-            android:orientation="horizontal"
-            android:layout_marginBottom="1pt"
-            >
-
-            <TextView
-                android:textStyle="bold"
-                android:layout_width="0dp"
-                android:layout_height="30pt"
-                android:layout_weight="3"
-                android:gravity="center"
-                android:layout_gravity="center"
-                android:onClick="hard"
-                android:text="Hard"
-                android:fontFamily="serif-monospace"
-                android:textColor="#000000"
-                android:textSize="10pt"
-                />
-            <TextView
-                android:layout_margin="2pt"
-                android:layout_width="30pt"
-                android:layout_height="30pt"
-                android:layout_gravity="center"
-                android:background="@drawable/lock12"/>
-
-
-        </LinearLayout>
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="0dp"
-            android:layout_weight="1"
-            android:background="#FFFFFF"
-            android:orientation="horizontal"
-            android:layout_marginBottom="1pt"
-            >
-
-            <TextView
-                android:textStyle="bold"
-                android:layout_width="0dp"
-                android:layout_height="30pt"
-                android:layout_weight="3"
-                android:gravity="center"
-                android:layout_gravity="center"
                 android:onClick="expert"
                 android:text="Expert"
                 android:fontFamily="serif-monospace"
@@ -215,6 +153,82 @@
 
 
         </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="0.50"
+            android:orientation="horizontal"
+
+            >
+
+            <TextView
+                android:textStyle="bold"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="3"
+                android:gravity="center"
+                android:layout_gravity="center"
+                android:onClick="idioms"
+                android:text="Idioms"
+                android:background="#34565F"
+                android:fontFamily="serif-monospace"
+                android:textColor="#FFFFFF"
+                android:textSize="10pt"
+
+                android:layout_marginRight="0.5pt"
+                />
+
+            <TextView
+                android:textStyle="bold"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="3"
+                android:gravity="center"
+                android:layout_gravity="center"
+                android:onClick="extrawords"
+                android:text="Common Words"
+                android:background="#34565F"
+                android:fontFamily="serif-monospace"
+                android:textColor="#FFFFFF"
+                android:textSize="10pt"
+                android:layout_marginLeft="0.5pt"
+
+                />
+
+
+        </LinearLayout>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="0.6"
+            android:background="#34565f"
+            android:orientation="horizontal"
+
+            >
+
+            <TextView
+                android:textStyle="bold"
+                android:layout_width="0dp"
+                android:layout_height="30pt"
+                android:layout_weight="3"
+                android:gravity="center"
+                android:text="Bookmarks"
+                android:layout_gravity="center"
+                android:onClick="idioms"
+                android:fontFamily="serif-monospace"
+                android:textColor="#000000"
+                android:background="@drawable/roundedtextviews"
+                android:textSize="10pt"
+                android:layout_margin="1pt"
+
+                />
+
+
+        </LinearLayout>
+
+
+
 
     </LinearLayout>
 </LinearLayout>

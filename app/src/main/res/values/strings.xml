@@ -113,4 +113,8 @@
     <string name="title_activity_beginnerfinal">beginnerfinal</string>
     <string name="title_activity_easy">easy</string>
     <string name="title_activity_easyfinal">easyfinal</string>
+    <string name="title_activity_idiomsfinal">idiomsfinal</string>
+    <string name="title_activity_dailynotification">dailynotification</string>
+    <string name="title_activity_expertfinal">expertfinal</string>
+    <string name="title_activity_extrawordsfinal">extrawordsfinal</string>
 </resources>

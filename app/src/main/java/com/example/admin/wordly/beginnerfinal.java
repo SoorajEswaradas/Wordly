@@ -1,5 +1,6 @@
 package com.example.admin.wordly;
 
+import android.app.ProgressDialog;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.media.AudioManager;
@@ -12,6 +13,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.View;
 import android.view.Window;
+import android.widget.Button;
 import android.widget.ProgressBar;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -28,6 +30,7 @@ import com.google.firebase.storage.StorageReference;
 
 import java.io.File;
 import java.io.FileInputStream;
+import java.util.Iterator;
 
 public class beginnerfinal extends AppCompatActivity {
     public TextView word;
@@ -37,16 +40,21 @@ public class beginnerfinal extends AppCompatActivity {
     public FirebaseAuth firebaseauth;
     public FirebaseDatabase firebasedatabase;
     public int wordnumber;
-    public String meaning1,examplea,exampleb,word1,link12;
+    public Button bookmarkbutton;
+    public String meaning1,examplea,exampleb,word1,bookmarkvalue,bookmarkvalue1;
     public StorageReference str;
     public MediaPlayer player;
     public String[] links;
-    String userid;
+    public String userid,currentlevel;
     public ProgressBar pb;
     public TextView prognumber;
+    public int bookmarknumber=0;
     public Firebase mref;
     public int a=0;
-    public static final String SHARED_PREFS="sharedpreferences";
+    public static String SHARED_PREFS="sharedpreferences";
+    public static String SHARED_PREFSbookmark="sharedpreferencesbookmark1";
+    public ProgressDialog progress;
+    Firebase wordref,meaningref,example1ref,example2ref,bookmarkref,bookmarkref1;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -56,7 +64,11 @@ public class beginnerfinal extends AppCompatActivity {
         setSupportActionBar(toolbar);
 
 
+        bookmarkbutton=(Button)findViewById(R.id.bookmarkbutton);
 
+
+        progress=new ProgressDialog(this);
+        progress.setMessage("Loading");
 
         links=new String[25];
         links[0]="https://firebasestorage.googleapis.com/v0/b/wordly-b22f0.appspot.com/o/beginervoice%2Faback--_gb_1.mp3?alt=media&token=f3847e0f-8c9a-4716-a98f-8257d174a340";
@@ -119,6 +131,7 @@ public class beginnerfinal extends AppCompatActivity {
         SharedPreferences sp=getSharedPreferences(SHARED_PREFS,MODE_PRIVATE);
         SharedPreferences.Editor spe=sp.edit();
         spe.putInt(userid,wordnumber);
+
         spe.apply();
     }
 
@@ -130,7 +143,52 @@ public class beginnerfinal extends AppCompatActivity {
 
     }
 
-   public  void pronounce(View view)
+    public void savedatabookmark()
+    {
+        SharedPreferences sp=getSharedPreferences(SHARED_PREFSbookmark,MODE_PRIVATE);
+        SharedPreferences.Editor spe=sp.edit();
+        spe.putInt(userid,bookmarknumber);
+        spe.apply();
+    }
+
+    public void loaddatabookmark()
+    {
+        SharedPreferences sp=getSharedPreferences(SHARED_PREFSbookmark,MODE_PRIVATE);
+        bookmarknumber=sp.getInt(userid,0);
+
+    }
+
+    public void bookmark(View view) {
+        loaddatabookmark();
+
+        Toast.makeText(beginnerfinal.this, "Added to bookmarks", Toast.LENGTH_SHORT).show();
+
+        Firebase mref1 = new Firebase("https://wordly-b22f0.firebaseio.com/beginnerbookmark/"+userid+"/"+bookmarknumber);
+        Firebase mrefchild1 = mref1.child("word");
+        mrefchild1.setValue(word1);
+
+        mref1 = new Firebase("https://wordly-b22f0.firebaseio.com/beginnerbookmark/" + userid + "/" + bookmarknumber);
+        mrefchild1 = mref1.child("meaning");
+        mrefchild1.setValue(meaning1);
+
+        mref1 = new Firebase("https://wordly-b22f0.firebaseio.com/beginnerbookmark/" + userid + "/" + bookmarknumber);
+        mrefchild1 = mref1.child("example1");
+        mrefchild1.setValue(examplea);
+
+        mref1 = new Firebase("https://wordly-b22f0.firebaseio.com/beginnerbookmark/" + userid + "/" + bookmarknumber);
+        mrefchild1 = mref1.child("example2");
+        mrefchild1.setValue(exampleb);
+
+        bookmarknumber++;
+
+        savedatabookmark();
+    }
+
+
+
+
+
+    public  void pronounce(View view)
     {
       try{
           player.start();
@@ -141,7 +199,7 @@ public class beginnerfinal extends AppCompatActivity {
     }
     }
         public void next(View view) {
-          updateword();
+        updateword();
         }
 
     public void previous(View view) {
@@ -172,8 +230,11 @@ public class beginnerfinal extends AppCompatActivity {
     }
 
 
+
+
     public void updateword()
     {
+
         loaddata();
         wordnumber++;
 
@@ -187,9 +248,34 @@ public class beginnerfinal extends AppCompatActivity {
             wordnumber=-1;
             savedata();
             finish();
-            Toast.makeText(this, "Beginner level completed. Next level unlocked", Toast.LENGTH_SHORT).show();
-            Intent i=new Intent(this,level2.class);
-            startActivity(i);
+
+            Firebase endref=new Firebase("https://wordly-b22f0.firebaseio.com/levelprogerss/userid");
+            endref.addValueEventListener(new ValueEventListener() {
+                @Override
+                public void onDataChange(DataSnapshot dataSnapshot) {
+                    currentlevel=dataSnapshot.getValue(String.class);
+                }
+
+                @Override
+                public void onCancelled(FirebaseError firebaseError) {
+
+                }
+            });
+
+
+
+            if(currentlevel!=null&&currentlevel.equalsIgnoreCase("1"))
+            {
+                Intent i=new Intent(this,level2.class);
+                Toast.makeText(this, "Beginner level completed. Next level unlocked", Toast.LENGTH_SHORT).show();
+                startActivity(i);
+            }
+            if(currentlevel!=null&&currentlevel.equalsIgnoreCase("2"))
+            {
+                Intent i=new Intent(this,level2.class);
+                startActivity(i);
+            }
+
         }
         pb.setProgress((wordnumber+1));
         prognumber.setText((wordnumber+1)+"/"+pb.getMax());
@@ -202,10 +288,11 @@ public class beginnerfinal extends AppCompatActivity {
                 player.setDataSource(links[wordnumber]);
                 player.prepare();
             } catch (Exception e) {
-                Toast.makeText(this, "Error playing audio", Toast.LENGTH_SHORT).show();
+                Toast.makeText(this, "New level Unlocked", Toast.LENGTH_SHORT).show();
+
             }
         }
-        Firebase wordref,meaningref,example1ref,example2ref;
+
         wordref=new Firebase("https://wordly-b22f0.firebaseio.com/beginner/"+wordnumber+"/words");
         wordref.addValueEventListener(new ValueEventListener() {
           @Override
@@ -266,7 +353,25 @@ public class beginnerfinal extends AppCompatActivity {
             }
         });
 
+       /* bookmarkref=new Firebase("https://wordly-b22f0.firebaseio.com/beginner/"+wordnumber+"/bookmarked");
+        bookmarkref.addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(DataSnapshot dataSnapshot) {
+                bookmarkvalue=dataSnapshot.getValue(String.class);
+                if(bookmarkvalue!=null&&bookmarkvalue.equalsIgnoreCase("1"))
+                bookmarkbutton.setText("Bookmark");
+                else
+                    bookmarkbutton.setText("Bookmarked");
 
+            }
+
+            @Override
+            public void onCancelled(FirebaseError firebaseError) {
+
+            }
+        });
+
+*/
         userid=firebaseauth.getInstance().getCurrentUser().getUid();
         mref=new Firebase("https://wordly-b22f0.firebaseio.com/beginnerprogress");
         Firebase mrefchild=mref.child(userid);
@@ -277,6 +382,8 @@ public class beginnerfinal extends AppCompatActivity {
 
 
         savedata();
+
+
 
 
 
