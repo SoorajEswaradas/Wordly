@@ -221,6 +221,11 @@ public class level2 extends AppCompatActivity
         Intent i=new Intent(level2.this,extrawordsfinal.class);
         startActivity(i);
     }
+    public void bookmark(View view)
+    {
+        Intent i=new Intent(level2.this,bookmarkroute.class);
+        startActivity(i);
+    }
     public void logout(MenuItem item)
     {
         Toast.makeText(this, "Signing Out", Toast.LENGTH_SHORT).show();

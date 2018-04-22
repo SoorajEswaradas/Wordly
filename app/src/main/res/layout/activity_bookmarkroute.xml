@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.example.admin.wordly.bookmarkroute"
+    android:orientation="vertical"
+    android:gravity="center"
+    android:background="@drawable/book">
+
+        <Button
+            android:layout_width="match_parent"
+            android:layout_height="20pt"
+            android:text="Beginner Bookmarks"
+            android:layout_margin="3pt"
+            android:background="@drawable/roundedtextviews"
+            android:onClick="beginner"/>
+
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="20pt"
+        android:text="Intermediate Bookmarks"
+        android:background="@drawable/roundedtextviews"
+        android:layout_margin="3pt"
+        android:onClick="intermediate"/>
+
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="20pt"
+        android:text="Expert Bookmarks"
+        android:layout_margin="3pt"
+        android:background="@drawable/roundedtextviews"
+        android:onClick="expert"/>
+
+</LinearLayout>

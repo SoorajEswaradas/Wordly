@@ -177,6 +177,11 @@ public class level3 extends AppCompatActivity
         startActivity(i);
     }
 
+    public void bookmark(View view)
+    {
+        Intent i=new Intent(level3.this,bookmarkroute.class);
+        startActivity(i);
+    }
 
 
     public void logout(MenuItem item)

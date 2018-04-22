@@ -109,7 +109,19 @@
         <activity
             android:name=".extrawordsfinal"
             android:label="Wordly"
-            android:theme="@style/AppTheme"/>
+            android:theme="@style/AppTheme" />
+        <activity
+            android:name=".bookmarkroute"
+            android:label="Bookmarks" />
+        <activity
+            android:name=".beginnerbookmark"
+            android:theme="@style/AppTheme" />
+        <activity
+            android:name=".beginnerbookmark1"
+            android:label="Bookmarks"
+            android:theme="@style/AppTheme" />
+        <activity android:name=".intermediatebookmark" />
+        <activity android:name=".expertbookmark"></activity>
     </application>
 
 </manifest>

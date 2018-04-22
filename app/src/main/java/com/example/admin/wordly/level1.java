@@ -222,6 +222,11 @@ public class level1 extends AppCompatActivity
         Intent i=new Intent(level1.this,extrawordsfinal.class);
         startActivity(i);
     }
+    public void bookmark(View view)
+    {
+        Intent i=new Intent(level1.this,bookmarkroute.class);
+        startActivity(i);
+    }
 
     public void logout(MenuItem item)
     {

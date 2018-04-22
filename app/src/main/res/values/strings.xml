@@ -117,4 +117,6 @@
     <string name="title_activity_dailynotification">dailynotification</string>
     <string name="title_activity_expertfinal">expertfinal</string>
     <string name="title_activity_extrawordsfinal">extrawordsfinal</string>
+    <string name="title_activity_beginnerbookmark">beginnerbookmark</string>
+    <string name="title_activity_beginnerbookmark1">beginnerbookmark1</string>
 </resources>
